@@ -160,7 +160,7 @@ const question = [
             { text: "Lewis Hamilton", correct: false },
             { text: "Michael Schumacher", correct: false },
             { text: "Ayrton Senna", correct: false },
-            { text: "Max verstappen", correct: true }
+            { text: "Max Verstappen", correct: true }
         ]
     },
     {
