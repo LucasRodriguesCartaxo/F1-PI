@@ -196,6 +196,7 @@ line-height: 1.8;
 .menu .box-container .box{
     text-align: center;
     border: var(--border);
+    border-radius: 10px;
     padding: 5rem;
     cursor: pointer;
 } 
