@@ -1,0 +1,108 @@
+/*/PONTO DE PARIDA/*/
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button{
+     cursor: pointer; 
+}
+
+body {
+    background: url('https://cdn.williamsf1.tech/images/fnx611yr/production/8207afd13d5e7c0a4177ec5c6b957d53c93dfc4b-4088x2299.jpg?w=1200&auto=format') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background-color: #000000c4;
+    color: white;
+    width: 90%;
+    max-width: 800px;
+    border: 2px solid #f5b200;
+    border-radius: 6px;
+    padding: 16px;
+    box-shadow: 0 0 2px 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+
+
+.question-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+}
+
+.question{
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    color: #72fc02;
+}
+
+.answers-conteiner{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 16px;
+}
+
+.next-question{
+    margin-top: 32px;
+}
+
+button{
+    background-color: #00a7e8;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: 0;
+    border-radius: 6px;
+    height: 48px;
+    padding: 0 32px;
+
+    transition: filter 0.2s;
+}
+
+button:not(:disabled):hover{
+    filter: brightness(0.8);
+}
+
+.answer:disabled{
+    cursor: not-allowed;
+}
+
+.hide {
+    display: none;
+}
+
+.correct{
+    background-color: #049b48;
+}
+
+.incorrect {
+    background-color: #a10101;
+}
+
+.final-message {
+    color: #72fc02; /* Mude para a cor que preferir /
+    font-size: 20px; / Altere o tamanho se desejar /
+    text-align: center; / Centraliza a mensagem */
+}
+
+.final-message span{
+    display: block;
+    margin-top: 8px;
+}

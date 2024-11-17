@@ -1,82 +1,183 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>AquaTech | Página Inicial</title>
-
-    <script src="./js/sessao.js"></script>
-
-    <link rel="stylesheet" href="./css/estilo.css">
-    <link rel="icon" href="./assets/icon/favicon2.ico">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <title>F1</title>
+    <link rel="icon" href="./img/favicon-32x32.png" type="image/png">
+    <link rel="stylesheet" href="./css/home.css">
 </head>
 
 <body>
-    <div class="header">
-      <div class="container">
-        <h1 class="titulo">AquaTech</h1>
-        <ul class="navbar">
-          <li class="agora">
-            <a href="#">Inicial</a>
-          </li>
-          <li>
-            <a href="simulador.html">Simulador</a>
-          </li>
-          <li>|</li>
-          <li>
-            <a href="login.html">Login</a>
-          </li>
-          <li>
-            <a href="cadastro.html">Cadastro</a>
-          </li>
-        </ul>
-      </div>
+    <div class="caixa-video" id="Home">
+        <video src="./videos/video do body.mp4" loop muted autoplay></video>
     </div>
-  
-    <div class="banner">
-      <div class="container">
-        <p>Preservando <span>hoje</span> para existirem <span>amanhã</span>.</p>
-      </div>
-    </div>
-  
-    <div class="social">
-      <div class="container">
-        <div class="boxes">
-          <div class="box">
-            <img src="assets/imgs/planet-earth_color.png">
-            <h4>Missão</h4>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et, quas cupiditate asperiores provident magnam
-              vitae illum iusto fugiat atque deleniti nulla sed iure suscipit, laborum, aliquid accusantium cum dicta
-              minima.</p>
-          </div>
-          <div class="box">
-            <img src="assets/imgs/lightbulb_color.png">
-            <h4>Visão</h4>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et, quas cupiditate asperiores provident magnam
-              vitae illum iusto fugiat atque deleniti nulla sed iure suscipit, laborum, aliquid accusantium cum dicta
-              minima.</p>
-          </div>
-          <div class="box">
-            <img src="assets/imgs/growth_color.png">
-            <h4>Valores</h4>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et, quas cupiditate asperiores provident magnam
-              vitae illum iusto fugiat atque deleniti nulla sed iure suscipit, laborum, aliquid accusantium cum dicta
-              minima.</p>
-          </div>
+
+
+    <header class="header">
+        <section>
+            <a href="#" class="logo">
+                <img src="img/logo_capa_-removebg-preview.png" alt="logo">
+            </a>
+
+            <nav class="navbar">
+                <a href="#Home">Home</a>
+                <a href="#about">A F1</a>
+                <a href="#menu">Lendas</a>
+                <a href="#review">Avaliações</a>
+                <a href="#">Login</a>
+                <a href="#">Cadastro</a>
+            </nav>
+
+        </section>
+    </header>
+
+
+    <section class="about" id="about">
+        <h2 class="title">Sobre<span> F1</span></h2>
+        <div class="row">
+            <div>
+                <img src="img/f1 logo (1).png" alt="sobre-nos">
+            </div>
+            <div class="content">
+                <h3></h3>
+                <p>A Fórmula 1 é a principal categoria do automobilismo global, famosa por sua tecnologia de ponta,
+                    altíssimas velocidades e pela disputa entre os pilotos mais talentosos do planeta.!</p>
+                <p>Os carros de Fórmula 1 são desenvolvidos para atingir velocidades elevadas, contando com motores
+                    extremamente potentes e estruturas aerodinâmicas. A temporada é composta por diversas corridas, nas
+                    quais equipes e pilotos competem
+                    para acumular pontos nos campeonatos de pilotos e de construtores.
+
+                </p>
+
+            </div>
         </div>
-      </div>
-    </div>
-  
-    <div class="footer">
-      <div class="container">
-        <h4>Feito com amor por aluno &hearts; SPTech &copy; 2023</h4>
-        <span class="version">v1.0.0</span>
-      </div>
-    </div>
-  </body>
+    </section>
+
+    <section class="menu" id="menu">
+        <h2 class="title">F1 <span>Legends</span></h2>
+
+        <div class="box-container">
+            <div class="box">
+                <img src="./img/max.png" alt="item-1">
+                <h3>Max Verstappen</h3>
+                <div class="titulos">
+                    <div>
+                        <img src="./img/icons8-países-baixos-100.png" alt="">
+                    </div>
+                    <a href="">Saiba Mais</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="./img/michael-schumacher-172129.jpg" alt="item-1">
+                <h3>Michael Schumacher</h3>
+                <div class="titulos">
+                    <div>
+                        <img src="./img/icons8-alemanha-100.png" alt="">
+                    </div>
+                    <a href="">Saiba Mais</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="./img/lewis-hamilton-mercedes-amg-f1.jpg" alt="item-1">
+                <h3>Lewis Hamilton</h3>
+                <div class="titulos">
+                    <div>
+                        <img src="./img/icons8-reino-unido-100.png" alt="">
+                    </div>
+                    <a href="">Saiba Mais</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="./img/juan-manuel-fangio.jpg" alt="item-1">
+                <h3>Juan Manuel Fangio</h3>
+                <div class="titulos">
+                    <div>
+                        <img src="./img/icons8-argentina-100.png" alt="">
+                    </div>
+                    <a href="">Saiba Mais</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="./img/senna.jpg" alt="item-1">
+                <h3>Ayrton Senna</h3>
+                <div class="titulos">
+                    <div>
+                        <img src="./img/teste.png" alt="">
+                    </div>
+                    <a href="">Saiba Mais</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="./img/prost.jpg" alt="item-1">
+                <h3>Alain Prost</h3>
+                <div class="titulos">
+                    <div>
+                        <img src="./img/icons8-frança-100.png" alt="">
+                    </div>
+                    <a href="">Saiba Mais</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="review" id="review">
+        <h2 class="title">Feedback dos<span> Fãs </span></h2>
+
+        <div class="box-container">
+            <div class="box">
+                <img class="aspas" src="img/quote-img.png" alt="comentario">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse exercitationem quisquam, delectus
+                    repellat maiores aspernatur fugiat dolorem possimus similique est eligendi non nihil perspiciatis.
+                    Autem quos doloremque amet? Rerum, atque!</p>
+                <img src="img/pedro-removebg-preview (1).png" alt="foto-cliente" class="user">
+                <h3>Pedro Morais</h3>
+                <div class="stars">
+                    <img width="30" height="30" src="img/icons8-estrela-30.png" alt="">
+                    <img width="30" height="30" src="img/icons8-estrela-30.png" alt="">
+                    <img width="30" height="30" src="img/icons8-estrela-30.png" alt="">
+                    <img width="30" height="30" src="img/icons8-estrela-30.png" alt="">
+                </div>
+            </div>
+            <div class="box">
+                <img class="aspas" src="img/quote-img.png" alt="comentario">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse exercitationem quisquam, delectus
+                    repellat maiores aspernatur fugiat dolorem possimus similique est eligendi non nihil perspiciatis.
+                    Autem quos doloremque amet? Rerum, atque!</p>
+                <img src="img/pic-2.png" alt="foto-cliente" class="user">
+                <h3>Will</h3>
+                <div class="stars">
+                    <img width="30" height="30" src="img/icons8-estrela-30.png" alt="">
+                    <img width="30" height="30" src="img/icons8-estrela-30.png" alt="">
+                    <img width="30" height="30" src="img/icons8-estrela-30.png" alt="">
+                    <img width="30" height="30" src="img/icons8-estrela-30.png" alt="">
+                    <img width="30" height="30" src="img/icons8-estrela-30.png" alt="">
+                </div>
+            </div>
+            <div class="box">
+                <img class="aspas" src="img/quote-img.png" alt="comentario">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse exercitationem quisquam, delectus
+                    repellat maiores aspernatur fugiat dolorem possimus similique est eligendi non nihil perspiciatis.
+                    Autem quos doloremque amet? Rerum, atque!</p>
+                <img src="img/pic-3.png" alt="foto-cliente" class="user">
+                <h3>Felipe</h3>
+                <div class="stars">
+                    <img width="30" height="30" src="img/icons8-estrela-30.png" alt="">
+                    <img width="30" height="30" src="img/icons8-estrela-30.png" alt="">
+                    <img width="30" height="30" src="img/icons8-estrela-30.png" alt="">
+                    <img width="30" height="30" src="img/icons8-estrela-30.png" alt="">
+                    <img width="30" height="30" src="img/icons8-estrela-30.png" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+</body>
 
 </html>
