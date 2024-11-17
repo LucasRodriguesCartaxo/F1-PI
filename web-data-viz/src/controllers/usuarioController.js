@@ -2,16 +2,16 @@ var usuarioModel = require("../models/usuarioModel");
 var aquarioModel = require("../models/aquarioModel");
 
 function autenticar(req, res) {
-    var email = req.body.emailServer;
-    var senha = req.body.senhaServer;
+    var usuario = req.body.usuario;
+    var senha = req.body.senha;
 
-    if (email == undefined) {
-        res.status(400).send("Seu email está undefined!");
+    if (usuario == undefined) {
+        res.status(400).send("Seu usuario está undefined!");
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está indefinida!");
     } else {
 
-        usuarioModel.autenticar(email, senha)
+        usuarioModel.autenticar(usuario, senha)
             .then(
                 function (resultadoAutenticar) {
                     console.log(`\nResultados encontrados: ${resultadoAutenticar.length}`);
@@ -19,23 +19,26 @@ function autenticar(req, res) {
 
                     if (resultadoAutenticar.length == 1) {
                         console.log(resultadoAutenticar);
-
-                        aquarioModel.buscarAquariosPorEmpresa(resultadoAutenticar[0].empresaId)
-                            .then((resultadoAquarios) => {
-                                if (resultadoAquarios.length > 0) {
-                                    res.json({
-                                        id: resultadoAutenticar[0].id,
-                                        email: resultadoAutenticar[0].email,
-                                        nome: resultadoAutenticar[0].nome,
-                                        senha: resultadoAutenticar[0].senha,
-                                        aquarios: resultadoAquarios
-                                    });
-                                } else {
-                                    res.status(204).json({ aquarios: [] });
-                                }
-                            })
+                        res.json({
+                           // constroi teu json de acordo com seu banco, o modelo do json ta ai embaixo comentado
+                           cassaco: resultadoAutenticar[0].padoru
+                        })
+                        // aquarioModel.buscarAquariosPorEmpresa(resultadoAutenticar[0].empresaId)
+                        //     .then((resultadoAquarios) => {
+                        //         if (resultadoAquarios.length > 0) {
+                        //             res.json({
+                        //                 id: resultadoAutenticar[0].id,
+                        //                 email: resultadoAutenticar[0].email,
+                        //                 nome: resultadoAutenticar[0].nome,
+                        //                 senha: resultadoAutenticar[0].senha,
+                        //                 aquarios: resultadoAquarios
+                        //             });
+                        //         } else {
+                        //             res.status(204).json({ aquarios: [] });
+                        //         }
+                        //     })
                     } else if (resultadoAutenticar.length == 0) {
-                        res.status(403).send("Email e/ou senha inválido(s)");
+                        res.status(403).send("Usuário e/ou senha inválido(s)");
                     } else {
                         res.status(403).send("Mais de um usuário com o mesmo login e senha!");
                     }
