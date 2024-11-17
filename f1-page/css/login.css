@@ -7,11 +7,10 @@
 }
 
 body {
-    background-image: url(https://i.imgur.com/K8lDBYU.jpg);
+    background-image: url(../img/loginBG.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-
 }
 
 .container {
