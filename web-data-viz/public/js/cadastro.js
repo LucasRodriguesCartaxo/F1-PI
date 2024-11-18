@@ -115,10 +115,10 @@ function cadastrar() {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            nome: nome,
-            usuario: usuario,
-            email: email,
-            senha: senha
+            nomeServer: nome,
+            usuarioServer: usuario,
+            emailServer: email,
+            senhaServer: senha
         })
     }).then(function (resposta) {
         console.log("ESTOU NO THEN DO entrar()!")
