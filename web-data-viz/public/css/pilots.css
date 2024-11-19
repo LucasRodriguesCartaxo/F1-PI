@@ -11,12 +11,12 @@ html{
 }
 
 body{
-    background-color: #202020;
+    background-color: #2020209c;
     font-family: 'Open Sans', sans-serif;
 }
 
 ::selection{
-    background-color: #FF2800;
+    background-color: #1410e7;
     color: #000;
 }
 
@@ -62,7 +62,7 @@ body{
 }
 
 .menu-item a:hover{
-    color: #FF2800;
+    color: #2020209c;
     transition: 0.5s;
 }
 /* Fim do estilo do header */
@@ -96,13 +96,13 @@ body{
 
 .pilot-name{
     font-size: 50px;
-    color: #FFF;
+    color: #224074;
     text-transform: uppercase;
     width: 100%;
 }
 
 .span-info{
-    color: #FF2800;
+    color: #f7f7f7;
     font-weight: lighter;
     font-size: 20px;
     letter-spacing: 1.5px;
@@ -123,7 +123,7 @@ body{
 .carrer{
     font-size: 35px;
     font-weight: 500;
-    color: #FFF;
+    color: #224074;
     text-transform: uppercase;
     margin-bottom: 25px;
 }
