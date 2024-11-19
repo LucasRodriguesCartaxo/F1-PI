@@ -48,6 +48,7 @@ function entrar(){
             console.log("Houve um erro ao tentar realizar o login!");
 
             resposta.text().then(texto => {
+                alert(`voce está inserindo os campos errados ou nao possui cadastro`)
                 console.error(texto);
                 finalizarAguardar(texto);
             });
