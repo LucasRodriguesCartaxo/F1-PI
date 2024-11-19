@@ -108,17 +108,16 @@ function cadastrar() {
         // cadError.setAttribute('style', 'display: none')
         // cadError.innerHTML = ''
 
-
         fetch("/usuarios/cadastrar", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            nomeServer: nome,
-            usuarioServer: usuario,
-            emailServer: email,
-            senhaServer: senha
+            nomeServer: nome.value,
+            usuarioServer: usuario.value,
+            emailServer: email.value,
+            senhaServer: senha.value
         })
     }).then(function (resposta) {
         console.log("ESTOU NO THEN DO entrar()!")
@@ -126,7 +125,7 @@ function cadastrar() {
         if (resposta.ok) {
             console.log(resposta);
             setTimeout(function () {
-                window.location = "../login.html";
+                window.location = "./login.html";
             }, 1000); // apenas para exibir o loading
 
             
