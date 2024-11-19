@@ -116,7 +116,7 @@
                 },
                 title: {
                     display: true,
-                    text: 'Pontos por Temporada na Ferrari',
+                    text: 'Pontos por Temporada na Fórmula 1',
                     color: '#FFF',
                     font: {
                         size: 15
@@ -129,17 +129,17 @@
     new Chart(chartStatus, {
         type: 'bar',
         data: {
-            labels: ['2024', '2023', '2022', '2021', '2020', '2019'],
+            labels: ['2024', '2023', '2022', '2021', '2020', '2019', '2018', '2017', '2016', '2015'],
             datasets: [{
                 label: 'Vitórias',
-                data: [1, 0, 3, 0, 0, 2],
+                data: [7, 19, 15, 10, 2, 3, 2, 2, 1, 0,],
                 backgroundColor: '#FF1800',
                 barThickness: 30,
                 borderWidth: 2
             },
             {
                 label: 'Pódios',
-                data: [5, 6, 11, 1, 2, 10],
+                data: [12, 21, 17, 18, 11, 9, 11, 4, 7, 0,],
                 backgroundColor: '#902512',
                 barThickness: 30,
                 borderWidth: 2
@@ -171,8 +171,8 @@
                 },
                 title: {
                     display: true,
-                    text: 'Vitórias e Pódios por temporada na Ferrari',
-                    color: '#FFF',
+                    text: 'Vitórias e Pódios',
+                    color: '#CCC',
                     font: {
                         size: 15
                     }
