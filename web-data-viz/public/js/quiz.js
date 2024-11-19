@@ -100,8 +100,8 @@ function finishGame() {
     // `;
 
     $questionsContainer.innerHTML = `
-<canvas id="myChart"></canvas>
-<p>padoru</p>`;
+
+    <div style="width: 400px; height:400px;" ><canvas id="myChart"></canvas></div>`
 const ctx = document.getElementById('myChart');
 
   new Chart(ctx, {
