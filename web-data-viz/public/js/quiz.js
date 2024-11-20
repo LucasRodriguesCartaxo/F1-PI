@@ -72,21 +72,21 @@ function finishGame() {
     const totalQuestions = question.length;
     const performance = Math.floor((totalCorrect / totalQuestions) * 100); // Corrigido o cálculo de performance
 
-    let message = '';
+    // let message = '';
 
-    switch (true) {
-        case (performance >= 90):
-            message = "Excelente :)";
-            break;
-        case (performance >= 70):
-            message = "Muito bom :)";
-            break;
-        case (performance >= 50):
-            message = "Bom";
-            break;
-        default:
-            message = "Pode melhorar :(";
-    }
+    // switch (true) {
+    //     case (performance >= 90):
+    //         message = "Excelente :)";
+    //         break;
+    //     case (performance >= 70):
+    //         message = "Muito bom :)";
+    //         break;
+    //     case (performance >= 50):
+    //         message = "Bom";
+    //         break;
+    //     default:
+    //         message = "Pode melhorar :(";
+    // }
 
     // $questionsContainer.innerHTML = 
     // `
