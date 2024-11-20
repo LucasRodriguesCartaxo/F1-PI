@@ -102,26 +102,26 @@ function finishGame() {
     $questionsContainer.innerHTML = `
 
     <div style="width: 400px; height:400px;" ><canvas id="myChart"></canvas></div>`
-const ctx = document.getElementById('myChart');
+    const ctx = document.getElementById('myChart');
 
-  new Chart(ctx, {
-    type: 'pie',
-    data: {
-      labels: ['certo','errada'],
-      datasets: [{
-        label: '# of Votes',
-        data: [totalCorrect,(totalQuestions - totalCorrect) ],
-        borderWidth: 1
-      }]
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true
+    new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ['certo', 'errada'],
+            datasets: [{
+                label: '# of Votes',
+                data: [totalCorrect, (totalQuestions - totalCorrect)],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
         }
-      }
-    }
-  });
+    });
 }
 
 
