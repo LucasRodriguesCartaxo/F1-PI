@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    background-color: #2020209c;
+    font-family: 'Open Sans', sans-serif;
+}
+
+::selection{
+    background-color: #d9d8fd;
+    color: #000;
+}
+
+/* Inicio do estilo do header */
+#header{
+    padding: 10px 20px;
+}
+
+.nav{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo{
+    position: fixed;
+    width: 100px;
+    height: 100px;
+}
+
+.logo:hover{
+    transform: translateY(2px) translateX(5px);
+    transition: 0.3s;
+}
+
+.nav-login{
+    position: absolute;
+    right: 0;
+    top: 1%;
+}
+
+.nav-login, .menu-item{
+    display: inline-block;
+    list-style: none;
+    margin: 10px 20px;
+}
+
+
+.menu-item a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.menu-item a:hover{
+    color: #2020209c;
+    transition: 0.5s;
+}
+/* Fim do estilo do header */
+
+/* Inicio do estilo do piloto */
+.container{
+    padding: 10px 20px;
+}
+
+.pilot{
+    display: flex;
+    padding: 0 20px;
+}
+
+.pilot-col-1{
+    position: fixed;
+    top: 15%;
+}
+
+.pilot-col-2{
+    margin-top: 5%;
+    width: 75%;
+    margin-left: 15%;
+}
+
+.infos{
+    display: flex;
+    flex-direction: column;
+    width: 445px;
+}
+
+.pilot-name{
+    font-size: 50px;
+    color: #fec900; /* cor do nome do piloto  */
+    text-transform: uppercase;
+    width: 100%;
+}
+
+.span-info{
+    color: #f7f7f7;
+    font-weight: lighter;
+    font-size: 20px;
+    letter-spacing: 1.5px;
+}
+
+.pilot-infos{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+.carrer{
+    font-size: 35px;
+    font-weight: 500;
+    color: #fec900;  /* cor do h2 carreira */
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+
+.stats{
+    width: 90%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+}
+
+.pilot-stats-row-1{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.pilot-stats-row-2{
+    display: flex;
+    justify-content: space-between;
+}
+
+.charts{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    gap: 50px;
+    margin-top: 50px;
+    
+}
+
+
+/* Fim do estilo do piloto */
+
+/* inicio do estilo do footer */
+#footer{
+    height: 80px;
+    color: #FFF;
+    background-color: #d3ad7f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-text{
+    font-size: 20px;
+    font-weight: lighter;
+}
+
+.github-logo{
+    margin-left: 20px;
+}
+
+.github-logo img{
+    width: 45px;
+    height: 45px;
+}
+
+.github-logo img:hover{
+    transition: 0.5s;
+    width: 50px;
+    height: 50px;
+}
+/* fim do estilo do footer */

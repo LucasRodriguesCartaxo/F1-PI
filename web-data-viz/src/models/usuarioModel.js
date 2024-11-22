@@ -5,7 +5,7 @@ function autenticar(usuario, senha) {
     
     // essa query tu muda de acordo com teu banco, o nome que tu der no select, vai ser o nome que tu usa no json
     var instrucaoSql = `
-        SELECT  usuario, senha FROM cadastro WHERE usuario = '${usuario}' AND senha = '${senha}'; `;
+        SELECT id_usuario, usuario, nome FROM cadastro WHERE usuario = '${usuario}' AND senha = '${senha}'; `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }

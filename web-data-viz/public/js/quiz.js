@@ -70,9 +70,54 @@ function selectAnswer(event) {
 
 function finishGame() {
     const totalQuestions = question.length;
-    const performance = Math.floor((totalCorrect / totalQuestions) * 100); // Corrigido o cálculo de performance
+    let qtd_corretas = totalCorrect
 
-    // let message = '';
+
+    fetch("/quiz/inserir", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            id_usuario: sessionStorage.getItem("ID_USUARIO"),
+            qtd_corretas: qtd_corretas,
+            qtd_total: totalQuestions
+        })
+    }).then(function (resposta) {
+        console.log("ESTOU NO THEN DO entrar()!")
+
+        if (resposta.ok) {
+            console.log(resposta);
+
+            /*resposta.json().then(json => {
+                setTimeout(function () {
+                    window.location = "../quiz.html";
+                }, 1000); // apenas para exibir o loading
+
+            });*/
+
+        } else {
+
+            console.log("Houve um erro ao tentar realizar o login!");
+
+            resposta.text().then(texto => {
+                alert(`voce está inserindo os campos errados ou nao possui cadastro`)
+                console.error(texto);
+                finalizarAguardar(texto);
+            });
+        }
+
+    }).catch(function (erro) {
+        console.log(erro);
+    })
+
+
+    //const performance = Math.floor((totalCorrect / totalQuestions) * 100); // Corrigido o cálculo de performance
+
+    let message = '';
+    message =  `Parabéns por completar o quiz ${sessionStorage.getItem('NOME_USUARIO')} <br>
+                <a href=''> Ver a sua dashboard </a>` 
+    $questionsContainer.innerHTML = message
 
     // switch (true) {
     //     case (performance >= 90):
@@ -99,7 +144,7 @@ function finishGame() {
     //     </button>
     // `;
 
-    $questionsContainer.innerHTML = `
+   /* $questionsContainer.innerHTML = `
 
     <div style="width: 400px; height:400px;" ><canvas id="myChart"></canvas></div>`
     const ctx = document.getElementById('myChart');
@@ -121,7 +166,7 @@ function finishGame() {
                 }
             }
         }
-    });
+    }); */
 }
 
 

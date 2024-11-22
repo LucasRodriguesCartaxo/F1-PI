@@ -199,7 +199,6 @@ section {
     border: var(--border);
     border-radius: 10px;
     padding: 5rem;
-    cursor: pointer;
 }
 
 

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/dash.css">
+    <link rel="shortcut icon" href="../assets/images/cavallino.png" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Dashboard</title>
+</head>
+
+<body>
+    <header id="header">
+        <nav class="nav"><!-------Inicio da navbar------->
+
+            <ul class="nav-login">
+                <li class="menu-item"><a href="./index.html">Home</a></li>
+            </ul>
+        </nav><!-------Fim da navbar------->
+    </header>
+    <section id="pilot-carrer">
+        <div class="container">
+            <div class="pilot">
+                <!-- <div class="pilot-col-1">
+                    <img src="../assets/images/stats-leclerc.png">
+                </div> -->
+
+                <div class="stats">
+
+
+                    <div class="charts">
+                        <canvas id="chartPoints"></canvas>
+                        <canvas id="chartStatus"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    <!-- -------------------------------------------------------------------------------------------------- -->
+
+    <footer id="footer"> <!-- Inicio do footer -->
+        <span class="footer-text">&copy; Desenvolvido com &hearts; por Lucas Rodrigues</span>
+        <a href="https://github.com/LucasRodriguesCartaxo" target="_blank" class="github-logo"><img
+                src="./img/logo githun.png"></a>
+    </footer> <!-- Fim do footer -->
+
+    <!-- -------------------------------------------------------------------------------------------------- -->
+</body>
+
+</html>
+
+<script>
+    const chartPoints = document.getElementById('chartPoints');
+
+
+    new Chart(chartPoints, {
+        type: 'pie',
+        data: {
+            labels: ['1994', '1993', '1992', '1991', '1990', '1989', '1988', '1987', '1986', '1985', '1984'],
+            datasets: [{
+                label: 'Pontos',
+                data: ['0', '73', '50', '96', '78', '60', '90', '57', '55', '38', '13'],
+                backgroundColor: '#fec900',
+                barThickness: 30,
+                borderWidth: 2
+            },
+            ]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        color: '#CCC'
+                    },
+                    grid: {
+                        color: '#CCC'
+                    }
+                },
+                x: {
+                    ticks: {
+                        color: '#CCC'
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    labels: {
+                        color: '#CCC'
+                    }
+                },
+                title: {
+                    display: true,
+                    text: 'Pontos por Temporada na Fórmula 1',
+                    color: '#fff',
+                    font: {
+                        size: 15
+                    }
+                }
+            },
+        },
+    });
+
+
+</script>

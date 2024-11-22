@@ -32,7 +32,10 @@ function entrar(){
             resposta.json().then(json => {
                 console.log(json);
                 console.log(JSON.stringify(json));
-                sessionStorage.EMAIL_USUARIO = json.cassaco;
+                
+                sessionStorage.ID_USUARIO = json.id_usuario;
+                sessionStorage.USUARIO = json.usuario;
+                sessionStorage.NOME_USUARIO = json.nome;
                 // muda pra reposta que teu back vai te mandar
                 // sessionStorage.NOME_USUARIO = json.nome;
                 // sessionStorage.ID_USUARIO = json.id;
