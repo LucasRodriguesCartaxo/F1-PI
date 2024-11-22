@@ -1,10 +1,10 @@
 :root {
-    --main-color:#d3ad7f;
-    --black:#13131a;
-    --bg:#1a2b3c;
-    --border:0.1rem solid rgba(255,255,255,0.3);
-    --redF1:#e10600;
-     font-size: 10px;
+    --main-color: #d3ad7f;
+    --black: #13131a;
+    --bg: #1a2b3c;
+    --border: 0.1rem solid rgba(255, 255, 255, 0.3);
+    --redF1: #e10600;
+    font-size: 10px;
 }
 
 * {
@@ -19,14 +19,15 @@
     font-family: "Roboto", sans-serif;
 }
 
-html, body {
+html,
+body {
     overflow-x: hidden;
     margin: 0;
     padding: 0;
 }
 
 
-.caixa-video{
+.caixa-video {
     position: relative;
     width: 100%;
     height: 100%;
@@ -37,26 +38,26 @@ html, body {
     min-height: 100%;
     min-width: 100%;
     position: relative;
-    
+
 }
 
 
-html{
-scroll-behavior:smooth;
+html {
+    scroll-behavior: smooth;
 }
 
-body{
+body {
     background-color: var(--bg);
 }
 
-section{
+section {
     padding: 3rem 2rem;
     margin: 0 auto;
     max-width: 1200px;
 }
 
 
-.header{
+.header {
     position: absolute;
     top: 0;
     width: 100vw;
@@ -65,7 +66,7 @@ section{
     background-color: #11508f40;
 }
 
-.header section{
+.header section {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -73,14 +74,14 @@ section{
     padding-bottom: 1.5rem;
 }
 
-.header a{
+.header a {
     margin: 0 1rem;
     font-size: 1.8rem;
     color: #fff;
-    
+
 }
 
-.navbar a:hover{
+.navbar a:hover {
     color: var(--redF1);
     border-bottom: 0.1rem solid var(--main-color);
     padding-bottom: 0.5rem;
@@ -88,17 +89,17 @@ section{
 }
 
 
-.icons img{
+.icons img {
     margin: 1rem;
     cursor: pointer;
 }
 
-.icons img:hover{
+.icons img:hover {
     width: 40px;
     height: 40px;
 }
 
-.btn{
+.btn {
     background: var(--main-color);
     color: #fff;
     padding: 1rem 3rem;
@@ -108,19 +109,20 @@ section{
     display: inline-block;
 }
 
-.btn:hover{
+.btn:hover {
     letter-spacing: 0.1rem;
 }
 
-.home-container section{
+.home-container section {
     display: flex;
     align-items: center;
-    min-height: 100vh;   /* */
+    min-height: 100vh;
+    /* */
 }
 
 
 
-.content h3{
+.content h3 {
     color: #fff;
     font-size: 5rem;
 }
@@ -133,7 +135,7 @@ section{
     padding: 1rem 0;
 }
 
-.title{
+.title {
     font-size: 4rem;
     color: var(--main-color);
     text-align: center;
@@ -141,12 +143,12 @@ section{
     margin-bottom: 4rem;
 }
 
-.title span{
+.title span {
     color: var(--redF1);
     text-transform: uppercase;
 }
 
-.about .row{
+.about .row {
     display: flex;
     align-items: center;
     background-color: var(--black);
@@ -154,23 +156,23 @@ section{
 }
 
 
-.about .row .content{
+.about .row .content {
     padding: 2rem;
 }
 
-.about .row .content h3{
- font-size: 3rem;
- color: #fff;
+.about .row .content h3 {
+    font-size: 3rem;
+    color: #fff;
 }
 
-.about .row .content p{
-font-size: 1.6rem;
-color: #fff;
-padding: 1rem 0;
-line-height: 1.8;
+.about .row .content p {
+    font-size: 1.6rem;
+    color: #fff;
+    padding: 1rem 0;
+    line-height: 1.8;
 }
 
-.box-container{
+.box-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
     gap: 1.5rem;
@@ -180,7 +182,8 @@ line-height: 1.8;
     width: 100px;
     height: 100px;
     border-radius: 30%;
-    object-fit: cover; /* Garantir que a imagem cubra o espaço */
+    object-fit: cover;
+    /* Garantir que a imagem cubra o espaço */
 }
 
 .stars img {
@@ -191,20 +194,20 @@ line-height: 1.8;
 
 
 
-.menu .box-container .box{
+.menu .box-container .box {
     text-align: center;
     border: var(--border);
     border-radius: 10px;
     padding: 5rem;
     cursor: pointer;
-} 
+}
 
 
-.menu .box-container .box img{
+.menu .box-container .box img {
     height: 10rem;
 }
 
-.menu .box-container .box h3{
+.menu .box-container .box h3 {
     color: #fff;
     font-size: 2rem;
     padding: 1rem 0;
@@ -213,17 +216,17 @@ line-height: 1.8;
 
 
 
-.menu .box-container .box:hover{
+.menu .box-container .box:hover {
     background-color: var(--redF1);
 
 }
 
 
-.menu .box-container .box:hover>*{
+.menu .box-container .box:hover>* {
     color: var(--black);
 }
 
-.review .box-container .box{
+.review .box-container .box {
     border: var(--border);
     border-radius: 10px;
     text-align: center;
@@ -231,7 +234,7 @@ line-height: 1.8;
 }
 
 
-.review .box-container .box p{
+.review .box-container .box p {
     font-size: 1.5rem;
     color: #fff;
     padding: 2rem 0;
@@ -239,7 +242,7 @@ line-height: 1.8;
     font-weight: lighter;
 }
 
-.review .box-container .box h3{
+.review .box-container .box h3 {
     color: #fff;
     font-size: 2rem;
     margin: 1rem 0;
@@ -251,7 +254,7 @@ line-height: 1.8;
     border-radius: 50%;
 }
 
-.titulos a{
+.titulos a {
     margin-top: 100%;
     padding: 10px 20px;
     background-color: rgba(0, 0, 0, 0.7);
@@ -260,10 +263,10 @@ line-height: 1.8;
     text-decoration: none;
 }
 
-.titulos a:hover{
+.titulos a:hover {
     background-color: #fff;
     color: #000;
-    transform:translateY(-10px);
+    transform: translateY(-10px);
     transition: 0.8s;
 }
 
@@ -271,15 +274,19 @@ line-height: 1.8;
 
 /* Adicionando estilo para o modal (popup) */
 .modal {
-    display: none; /* Inicialmente escondido */
+    display: none;
+    /* Inicialmente escondido */
     position: fixed;
-    z-index: 1; /* Fica na frente de outros conteúdos */
+    z-index: 1;
+    /* Fica na frente de outros conteúdos */
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto; /* Adiciona rolagem caso o conteúdo do modal seja muito grande */
-    background-color: rgba(0, 0, 0, 0.4); /* Fundo semitransparente */
+    overflow: auto;
+    /* Adiciona rolagem caso o conteúdo do modal seja muito grande */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Fundo semitransparente */
 }
 
 .modal-content {
@@ -306,4 +313,34 @@ line-height: 1.8;
     cursor: pointer;
 }
 
+#footer {
+    height: 80px;
+    color: #FFF;
+    background-color: var(--main-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-text {
+    font-size: 20px;
+    font-weight: lighter;
+}
+
+.github-logo {
+    margin-left: 20px;
+}
+
+.github-logo img {
+    width: 45px;
+    height: 45px;
+}
+
+.github-logo img:hover {
+    transition: 0.5s;
+    width: 50px;
+    height: 50px;
+}
+
+/* fim do estilo do footer */
 /* Restante do CSS */

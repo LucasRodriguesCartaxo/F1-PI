@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/senna.css">
+    <link rel="shortcut icon" href="../assets/images/cavallino.png" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Piloto Ayrton Senna da Silva</title>
+</head>
+
+<body>
+    <header id="header">
+        <nav class="nav"><!-------Inicio da navbar------->
+            <a href="./index.html"><img src="./img/back senna.png" class="logo"></a>
+            <ul class="nav-login">
+                <li class="menu-item"><a href="./login.html">Login</a></li>
+                <li class="menu-item"><a href="./cadastro.html">Cadastro</a></li>
+            </ul>
+        </nav><!-------Fim da navbar------->
+    </header>
+    <section id="pilot-carrer">
+        <div class="container">
+            <div class="pilot">
+                <!-- <div class="pilot-col-1">
+                    <img src="../assets/images/stats-leclerc.png">
+                </div> -->
+                <div class="pilot-col-2">
+                    <div class="infos">
+                        <h1 class="pilot-name">Ayrton Senna da Silva</h1>
+                        <div class="pilot-infos">
+                            <span class="span-info">1.75 M</span>
+                            <span class="span-info">Brasileiro</span>
+                            <span class="span-info">70 KG</span>
+                        </div>
+                        <div class="infos-description">
+                            <span>Altura</span>
+                            <span>Pais Origem</span>
+                            <span>Peso</span>
+                        </div>
+                    </div>
+                    <div class="stats">
+                        <h2 class="carrer">Carreira</h2>
+                        <div class="pilot-stats-row-1">
+                            <span class="span-info">41 Corridas Vencidas</span>
+                            <span class="span-info">65 Pole positions</span>
+                            <span class="span-info">161 Corridas Disputadas</span>
+                        </div>
+                        <div class="pilot-stats-row-2">
+                            <span class="span-info">80 Vezes no Pódio</span>
+                            <span class="span-info">Tricampeão mundial</span>
+                            <span class="span-info">19 Voltas Rápidas</span>
+                        </div>
+                        <div class="charts">
+                            <canvas id="chartPoints"></canvas>
+                            <canvas id="chartStatus"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- -------------------------------------------------------------------------------------------------- -->
+
+    <footer id="footer"> <!-- Inicio do footer -->
+        <span class="footer-text">&copy; Desenvolvido com &hearts; por Lucas Rodrigues</span>
+        <a href="https://github.com/LucasRodriguesCartaxo" target="_blank" class="github-logo"><img
+                src="./img/logo githun.png"></a>
+    </footer> <!-- Fim do footer -->
+
+    <!-- -------------------------------------------------------------------------------------------------- -->
+</body>
+
+</html>
+
+<script>
+    const chartPoints = document.getElementById('chartPoints');
+    const chartStatus = document.getElementById('chartStatus');
+
+    new Chart(chartPoints, {
+        type: 'bar',
+        data: {
+            labels: ['1994', '1993', '1992', '1991', '1990', '1989', '1988', '1987', '1986', '1985', '1984'],
+            datasets: [{
+                label: 'Pontos',
+                data: ['0', '73', '50', '96', '78', '60', '90', '57', '55', '38', '13'],
+                backgroundColor: '#fec900',
+                barThickness: 30,
+                borderWidth: 2
+            },
+            ]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        color: '#CCC'
+                    },
+                    grid: {
+                        color: '#CCC'
+                    }
+                },
+                x: {
+                    ticks: {
+                        color: '#CCC'
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    labels: {
+                        color: '#CCC'
+                    }
+                },
+                title: {
+                    display: true,
+                    text: 'Pontos por Temporada na Fórmula 1',
+                    color: '#fff',
+                    font: {
+                        size: 15
+                    }
+                }
+            },
+        },
+    });
+
+    new Chart(chartStatus, {
+        type: 'bar',
+        data: {
+            labels: ['1994', '1993', '1992', '1991', '1990', '1989', '1988', '1987', '1986', '1985', '1984'],
+            datasets: [{
+                label: 'Vitórias',
+                data: [0, 5, 3, 7, 6, 6, 8, 2, 2, 2, 0,],
+                backgroundColor: '#22a538',
+                barThickness: 30,
+                borderWidth: 2
+            },
+            {
+                label: 'Pódios',
+                data: [0, 9, 7, 12, 11, 7, 11, 8, 8, 6, 3],
+                backgroundColor: '#fec900',
+                barThickness: 30,
+                borderWidth: 2
+            },
+            ]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        color: '#CCC'
+                    },
+                    grid: {
+                        color: '#CCC'
+                    }
+                },
+                x: {
+                    ticks: {
+                        color: '#CCC'
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    labels: {
+                        color: '#CCC'
+                    }
+                },
+                title: {
+                    display: true,
+                    text: 'Vitórias e Pódios',
+                    color: '#fff',
+                    font: {
+                        size: 15
+                    }
+                }
+            },
+        }
+    });
+</script>
