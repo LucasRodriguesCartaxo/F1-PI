@@ -129,12 +129,6 @@ section {
 }
 
 
-
-.content h3 {
-    color: #fff;
-    font-size: 5rem;
-}
-
 .content p {
     color: #fff;
     font-size: 2rem;
@@ -215,7 +209,7 @@ section {
 }
 
 .menu .box-container .box h3 {
-    color: #fff;
+    color: #ffffff;
     font-size: 2rem;
     padding: 1rem 0;
 }
@@ -233,32 +227,52 @@ section {
     color: var(--black);
 }
 
-.review .box-container .box {
-    border: var(--border);
-    border-radius: 10px;
-    text-align: center;
-    padding: 3rem 2rem;
+.review .box-container {
+    display: flex; /* Define os boxes como flexíveis */
+    gap: 2rem; /* Espaçamento entre os elementos */
+    flex-wrap: wrap; /* Permite que os elementos ocupem linhas extras quando necessário */
+    justify-content: center; /* Centraliza os boxes */
+}
+
+.review .box {
+    flex: 1 1 calc(33.333% - 2rem); /* Faz com que cada box ocupe um terço da largura disponível */
+    max-width: 30rem; /* Limita a largura máxima */
+    min-height: 25rem; /* Define uma altura mínima fixa */
+    background: var(--bg); /* Cor de fundo */
+    border: var(--border); /* Borda */
+    padding: 1rem; /* Espaçamento interno */
+    text-align: center; /* Alinha o conteúdo */
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1); /* Sombra */
+    border-radius: 1rem; /* Bordas arredondadas */
+    overflow: hidden; /* Garante que o texto ou elementos não escapem */
+}
+
+.review .box img.user {
+    width: 8rem; /* Define tamanho fixo da imagem */
+    height: 8rem; /* Define tamanho fixo da imagem */
+    object-fit: cover; /* Garante que a imagem se ajuste bem */
+    border-radius: 50%; /* Imagem em formato circular */
+    margin: 1rem auto; /* Margem para centralizar */
+    border: 2px solid var(--main-color);
+}
+
+.review .box p {
+    white-space: nowrap; /* Evita quebra de linha */
+    overflow: hidden; /* Esconde texto que ultrapasse o limite */
+    text-overflow: ellipsis; /* Adiciona reticências ao texto cortado */
+    height: 6rem; /* Define altura fixa para o parágrafo */
+    line-height: 1.5; /* Espaçamento entre linhas */
+    margin-bottom: 1rem; /* Espaçamento inferior */
 }
 
 
-.review .box-container .box p {
-    font-size: 1.5rem;
-    color: #fff;
-    padding: 2rem 0;
-    line-height: 1.8;
-    font-weight: lighter;
+.comentario{
+    color: var(--redF1);
+    font-size: 11px;
 }
 
-.review .box-container .box h3 {
-    color: #fff;
-    font-size: 2rem;
-    margin: 1rem 0;
-}
-
-.review .box-container .box .user {
-    height: 7rem;
-    width: 7rem;
-    border-radius: 50%;
+H3{
+    color: var(--redF1);
 }
 
 .titulos a {
@@ -275,49 +289,6 @@ section {
     color: #000;
     transform: translateY(-10px);
     transition: 0.8s;
-}
-
-
-
-/* Adicionando estilo para o modal (popup) */
-.modal {
-    display: none;
-    /* Inicialmente escondido */
-    position: fixed;
-    z-index: 1;
-    /* Fica na frente de outros conteúdos */
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    /* Adiciona rolagem caso o conteúdo do modal seja muito grande */
-    background-color: rgba(0, 0, 0, 0.4);
-    /* Fundo semitransparente */
-}
-
-.modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 600px;
-    text-align: center;
-}
-
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
 }
 
 #footer {
