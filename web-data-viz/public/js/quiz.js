@@ -115,8 +115,8 @@ function finishGame() {
     //const performance = Math.floor((totalCorrect / totalQuestions) * 100); // Corrigido o cálculo de performance
 
     let message = '';
-    message =  `Parabéns por completar o quiz ${sessionStorage.getItem('NOME_USUARIO')} <br>
-                <a href=''> Ver a sua dashboard </a>` 
+    message =  `<span class = 'nomeDoUsuario'>Parabéns por completar o quiz ${sessionStorage.getItem('NOME_USUARIO')}</span> <br>
+                <a href='./dashboar.html'><span class='textdash'>Ver a sua dashboard</span> </a>` 
     $questionsContainer.innerHTML = message
 
     // switch (true) {
