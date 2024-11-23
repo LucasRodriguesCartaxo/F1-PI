@@ -4,16 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/max.css">
+    <link rel="stylesheet" href="./css/Schumacher.css">
     <link rel="shortcut icon" href="../assets/images/cavallino.png" type="image/x-icon">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <title>Piloto - Max Verstappen</title>
+    <title>Piloto - Michael Schumacher</title>
 </head>
 
 <body>
     <header id="header">
         <nav class="nav"><!-------Inicio da navbar------->
-            <a href="./index.html"><img src="./img/back max.png" class="logo"></a>
+            <a href="./index.html"><img src="./img/back-schumaccer.png" class="logo"></a>
             <ul class="nav-login">
                 <li class="menu-item"><a href="./login.html">Login</a></li>
                 <li class="menu-item"><a href="./cadastro.html">Cadastro</a></li>
@@ -28,10 +28,10 @@
                 </div> -->
                 <div class="pilot-col-2">
                     <div class="infos">
-                        <h1 class="pilot-name">Max Verstappen</h1>
+                        <h1 class="pilot-name">Michael Schumacher</h1>
                         <div class="pilot-infos">
-                            <span class="span-info">1.81 M</span>
-                            <span class="span-info">Holandês</span>
+                            <span class="span-info">1.74 m</span>
+                            <span class="span-info">Alemão</span>
                             <span class="span-info">72 KG</span>
                         </div>
                         <div class="infos-description">
@@ -43,14 +43,14 @@
                     <div class="stats">
                         <h2 class="carrer">Carreira</h2>
                         <div class="pilot-stats-row-1">
-                            <span class="span-info">62 Corridas Vencidas</span>
-                            <span class="span-info">40 Pole positions</span>
-                            <span class="span-info">204 Corridas Disputadas</span>
+                            <span class="span-info">91 Corridas Vencidas</span>
+                            <span class="span-info">68 Pole positions</span>
+                            <span class="span-info">308 Corridas Disputadas</span>
                         </div>
                         <div class="pilot-stats-row-2">
-                            <span class="span-info">103 Vezes no Pódio</span>
-                            <span class="span-info">Tricampeão mundial</span>
-                            <span class="span-info">30 Voltas Rápidas</span>
+                            <span class="span-info">155 Vezes no Pódio</span>
+                            <span class="span-info">heptacampeão mundial</span>
+                            <span class="span-info">77 Voltas Rápidas</span>
                         </div>
                         <div class="charts">
                             <canvas id="chartPoints"></canvas>
@@ -81,11 +81,11 @@
     new Chart(chartPoints, {
         type: 'bar',
         data: {
-            labels: ['2024', '2023', '2022', '2021', '2020', '2019', '2018', '2017', '2016', '2015'],
+            labels: ['2012', '2011', '2010', '2006', '2005', '2004', '2003', '2002', '2001', '2000', '1999', '1998', '1997', '1996', '1995', '1994', '1993', '1992', '1991'],
             datasets: [{
                 label: 'Pontos',
-                data: ['354', '575', '454', '395.5', '214', '278', '249', '168', '204', '49'],
-                backgroundColor: '#f7f7f7',
+                data: ['49 ', '76 ', '72 ', '116', '62', '148 ', '93 ', '144 ', '108 ', '108 ', '44 ', '56 ', '78 ', '59 ', '102 ', '92 ', '54 ', '53 ', '0'],
+                backgroundColor: '#ee161f',
                 barThickness: 30,
                 borderWidth: 2
             },
@@ -129,19 +129,19 @@
     new Chart(chartStatus, {
         type: 'bar',
         data: {
-            labels: ['2024', '2023', '2022', '2021', '2020', '2019', '2018', '2017', '2016', '2015'],
+            labels: ['2012', '2011', '2010', '2006', '2005', '2004', '2003', '2002', '2001', '2000', '1999', '1998', '1997', '1996', '1995', '1994', '1993', '1992', '1991'],
             datasets: [{
                 label: 'Vitórias',
-                data: [7, 19, 15, 10, 2, 3, 2, 2, 1, 0,],
-                backgroundColor: '#224074',
-                barThickness: 30,
+                data: ['0', '0', '0', '7', '7', '13', '6', '11', '9', '9', '2', '6', '5', '3', '9', '8', '1', '1', '0'],
+                backgroundColor: '#fff200',
+                barThickness: 25,
                 borderWidth: 2
             },
             {
                 label: 'Pódios',
-                data: [12, 21, 17, 18, 11, 9, 11, 4, 7, 0,],
-                backgroundColor: '#f7f7f7',
-                barThickness: 30,
+                data: ['0', '0', '1', '12', '9', '13', '13', '17', '14', '13', '5', '11', '9', '9', '11', '13', '5', '3', '0'],
+                backgroundColor: '#ee161f',
+                barThickness: 25,
                 borderWidth: 2
             },
             ]
