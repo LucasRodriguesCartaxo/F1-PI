@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    
+
     <header id="header">
         <nav class="nav"><!-------Inicio da navbar------->
 
@@ -46,9 +46,7 @@
     <section id="pilot-carrer">
         <div class="container">
             <div class="pilot">
-                <!-- <div class="pilot-col-1">
-                    <img src="../assets/images/stats-leclerc.png">
-                </div> -->
+
 
                 <div class="stats">
 
@@ -63,16 +61,17 @@
         </div>
     </section>
     <!-- -------------------------------------------------------------------------------------------------- -->
-   
+
 
     <footer id="footer"> <!-- Inicio do footer -->
         <span class="footer-text">&copy; Desenvolvido com &hearts; por Lucas Rodrigues</span>
         <a href="https://github.com/LucasRodriguesCartaxo" target="_blank" class="github-logo"><img
                 src="./img/logo githun.png"></a>
     </footer> <!-- Fim do footer -->
-    
+
     <!-- -------------------------------------------------------------------------------------------------- -->
 </body>
+
 </html>
 
 <script>
@@ -81,7 +80,7 @@
         const chartPoints = document.getElementById('chartPoints');
         var corretas = 0;
         var erradas = 0;
-        
+
 
         fetch(`/quiz/dados/${sessionStorage.getItem("ID_USUARIO")}`, {
             method: "GET",
@@ -198,7 +197,45 @@
         })
     }
 
+    function pontuacaoMaxima() {
+        fetch(`/quiz/pontuacaoMaxima/${sessionStorage.getItem("ID_USUARIO")}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    pontMaxima.innerHTML = json[0].max_pontuacao;
+                    pontMinima.innerHTML = json[0].min_pontuacao;
+                    pontMedia.innerHTML = json[0].media_pontuacao;
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar pegar dados do quiz!");
+
+                resposta.text().then(texto => {
+                    alert(`Houve um erro ao tentar pegar dados do quiz!`)
+                    console.error(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+    }
+
+
 
     gerarGrafico()
     totalTentativas()
+    pontuacaoMaxima()
 </script>

@@ -17,4 +17,9 @@ router.get("/totalTentativas/:idUsuario", function(req, res) {
     quizController.totalTentativas(req, res);
 })
 
+router.get("/pontuacaoMaxima/:idUsuario", function(req, res) {
+    quizController.pontuacaoMaxima(req, res);
+    console.log("cheguei na rota da pontuacao maxima",req.params.idUsuario) // parametro quando tem dois pontos na rota ::::::::
+})
+
 module.exports = router;

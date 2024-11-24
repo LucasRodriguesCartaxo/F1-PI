@@ -53,11 +53,30 @@ function totalTentativas(req, res) {
     });
 }
 
+function pontuacaoMaxima(req, res) {
+    var id_usuario = req.params.idUsuario; // esse idUsuario eu peguei do parametro que eu estabeleci no quiz.js, no caso a rota 
+
+    quizModel.pontuacaoMaxima(id_usuario).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado)
+        }
+
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log(
+            "\nHouve um erro ao realizar a pontuacao maxima! Erro: ",
+            erro.sqlMessage
+        );
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
 
 module.exports = {
     inserir,
     puxarquiz,
-    totalTentativas
+    totalTentativas,
+    pontuacaoMaxima
 }
 
 

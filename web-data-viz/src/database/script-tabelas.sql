@@ -39,7 +39,8 @@ SELECT
     TRUNCATE(avg(dq.qtd_corretas), 1) AS media_corretas
 FROM dados_quiz AS dq
 JOIN cadastro AS d
-ON dq.fk_usuario = d.id_usuario;
+ON dq.fk_usuario = d.id_usuario
+WHERE dq.fk_usuario = 1;
 
 -- a ultima tentativa do mano
 SELECT *
