@@ -11,6 +11,7 @@ $nextQuestionButton.addEventListener("click", displayNextQuestion)
 let currentQuestionIndex = 0
 let totalCorrect = 0
 
+
 function startGame() {
     $startGameButton.classList.add("hide");
     $questionsContainer.classList.remove("hide");
@@ -89,12 +90,7 @@ function finishGame() {
         if (resposta.ok) {
             console.log(resposta);
 
-            /*resposta.json().then(json => {
-                setTimeout(function () {
-                    window.location = "../quiz.html";
-                }, 1000); // apenas para exibir o loading
 
-            });*/
 
         } else {
 
@@ -112,61 +108,13 @@ function finishGame() {
     })
 
 
-    //const performance = Math.floor((totalCorrect / totalQuestions) * 100); // Corrigido o cálculo de performance
+
 
     let message = '';
-    message =  `<span class = 'nomeDoUsuario'>Parabéns por completar o quiz ${sessionStorage.getItem('NOME_USUARIO')}</span> <br>
-                <a href='./dashboar.html'><span class='textdash'>Ver a sua dashboard</span> </a>` 
+    message = `<span class = 'nomeDoUsuario'>Parabéns por completar o quiz ${sessionStorage.getItem('NOME_USUARIO')}</span> <br>
+                <a href='./dashboar.html'><span class='textdash'>Ver a sua dashboard</span> </a>`
     $questionsContainer.innerHTML = message
 
-    // switch (true) {
-    //     case (performance >= 90):
-    //         message = "Excelente :)";
-    //         break;
-    //     case (performance >= 70):
-    //         message = "Muito bom :)";
-    //         break;
-    //     case (performance >= 50):
-    //         message = "Bom";
-    //         break;
-    //     default:
-    //         message = "Pode melhorar :(";
-    // }
-
-    // $questionsContainer.innerHTML = 
-    // `
-    //     <p class="final-message">
-    //     Você acertou ${totalCorrect} de ${totalQuestions} questões!
-    //     <span>Resultado: ${message}</span>
-    //     </p>
-    //     <button onclick=window.location.reload() class= "button"> 
-    //      Refazer teste
-    //     </button>
-    // `;
-
-   /* $questionsContainer.innerHTML = `
-
-    <div style="width: 400px; height:400px;" ><canvas id="myChart"></canvas></div>`
-    const ctx = document.getElementById('myChart');
-
-    new Chart(ctx, {
-        type: 'pie',
-        data: {
-            labels: ['certo', 'errada'],
-            datasets: [{
-                label: '# of Votes',
-                data: [totalCorrect, (totalQuestions - totalCorrect)],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    }); */
 }
 
 

@@ -1,8 +1,18 @@
+:root {
+    --main-color: #d3ad7f;
+    --black: #13131a;
+    --bg: #1a2b3c;
+    --border: 0.1rem solid rgba(255, 255, 255, 0.3);
+    --redF1: #e10600;
+}
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
+
 
 
 .indicadores{
@@ -22,7 +32,7 @@
     align-items: center;
     justify-content: space-between;
     border-radius: 5px;
-    border: 1px solid black;
+    border: 1px solid gold;
     transition: .5s all ease;
 }
 
@@ -31,7 +41,7 @@
 }
 
 .indicadores .indicador h3{
-    background-color: magenta;
+    background-color: var(--main-color);
     color: white;
     width: 100%;
     align-items: center;

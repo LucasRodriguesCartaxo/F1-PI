@@ -41,15 +41,6 @@ body {
     top: 0;
 }
 
-.mascara{
-    height: 100%;
-    width: 100%;
-    position: relative;
-    top: 0;
-    background: linear-gradient(109deg, rgba(10,12,16,0.99) 15%, rgba(10,12,16,0.7) 30%, rgba(10,12,16,0.99) 75%);
-}
-
-
 html {
     scroll-behavior: smooth;
 }
@@ -114,12 +105,8 @@ section {
     font-size: 1.7rem;
     cursor: pointer;
     margin-top: 1rem;
-    display: inline-block;
 }
 
-.btn:hover {
-    letter-spacing: 0.1rem;
-}
 
 .home-container section {
     display: flex;
@@ -321,4 +308,3 @@ H3{
 }
 
 /* fim do estilo do footer */
-/* Restante do CSS */

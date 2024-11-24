@@ -24,16 +24,18 @@ body{
 /* Inicio do estilo do header */
 #header{
     padding: 10px 20px;
+    
 }
 
 .nav{
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .logo{
-    position: fixed;
+    /* position: fixed; */
     width: 100px;
     height: 100px;
 }
@@ -44,7 +46,6 @@ body{
 }
 
 .nav-login{
-    position: absolute;
     right: 0;
     top: 1%;
 }

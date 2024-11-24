@@ -64,7 +64,7 @@ function pontuacaoMaxima(req, res) {
     }).catch(function (erro) {
         console.log(erro);
         console.log(
-            "\nHouve um erro ao realizar a pontuacao maxima! Erro: ",
+            "\nHouve um erro ao realizar a pontuacao! Erro: ",
             erro.sqlMessage
         );
         res.status(500).json(erro.sqlMessage);
