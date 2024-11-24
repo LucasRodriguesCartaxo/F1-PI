@@ -53,7 +53,6 @@
 
                     <div class="charts">
                         <canvas id="chartPoints"></canvas>
-                        <canvas id="chartStatus"></canvas>
                     </div>
                 </div>
             </div>
@@ -212,7 +211,7 @@
                 resposta.json().then(json => {
                     console.log(json);
                     console.log(JSON.stringify(json));
-                    pontMaxima.innerHTML = json[0].max_pontuacao;
+                    pontMaxima.innerHTML = json[0].max_pontuacao; // esses dados eu estou pegando o AS que eu utilei no quiz model
                     pontMinima.innerHTML = json[0].min_pontuacao;
                     pontMedia.innerHTML = json[0].media_pontuacao;
 
