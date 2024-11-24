@@ -2,7 +2,7 @@ var database = require("../database/config")
 
 function autenticar(usuario, senha) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", usuario, senha)
-    
+
     // essa query tu muda de acordo com teu banco, o nome que tu der no select, vai ser o nome que tu usa no json
     var instrucaoSql = `
         SELECT id_usuario, usuario, nome FROM cadastro WHERE usuario = '${usuario}' AND senha = '${senha}'; `;
@@ -13,7 +13,7 @@ function autenticar(usuario, senha) {
 // Coloque os mesmos parâmetros aqui. Vá para a var instrucaoSql
 function cadastrar(nome, usuario, email, senha) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, usuario, email, senha);
-    
+
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucaoSql = `
@@ -23,7 +23,11 @@ function cadastrar(nome, usuario, email, senha) {
     return database.executar(instrucaoSql);
 }
 
+
+
+
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    
 };

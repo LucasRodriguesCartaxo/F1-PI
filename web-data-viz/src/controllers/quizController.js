@@ -7,7 +7,7 @@ function inserir(req, res) {
 
     quizModel.inserir(id_usuario, qtd_corretas, qtd_total).then(function (resultado) {
         res.json(resultado);
-    }).catch( function (erro) {
+    }).catch(function (erro) {
         console.log(erro);
         console.log(
             "\nHouve um erro ao realizar a inserção do quiz! Erro: ",
@@ -16,6 +16,49 @@ function inserir(req, res) {
         res.status(500).json(erro.sqlMessage);
     });
 }
-module.exports = {
-    inserir
+
+function puxarquiz(req, res) {
+    var id_usuario = req.params.idUsuario; // esse idUsuario eu peguei do parametro que eu estabeleci no quiz.js
+
+    quizModel.puxarquiz(id_usuario).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado)
+        }
+
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log(
+            "\nHouve um erro ao realizar a inserção do quiz! Erro: ",
+            erro.sqlMessage
+        );
+        res.status(500).json(erro.sqlMessage);
+    });
 }
+
+function totalTentativas(req, res) {
+    var id_usuario = req.params.idUsuario; // esse idUsuario eu peguei do parametro que eu estabeleci no quiz.js
+
+    quizModel.totalTentativas(id_usuario).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado)
+        }
+
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log(
+            "\nHouve um erro ao realizar a inserção do quiz! Erro: ",
+            erro.sqlMessage
+        );
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+
+module.exports = {
+    inserir,
+    puxarquiz,
+    totalTentativas
+}
+
+
+// isso aqui vai inserir os dados no banco

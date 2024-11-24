@@ -5,12 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/dash.css">
+    <link rel="stylesheet" href="./css/dashboard.css">
     <link rel="shortcut icon" href="../assets/images/cavallino.png" type="image/x-icon">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Dashboard</title>
 </head>
 
 <body>
+    
     <header id="header">
         <nav class="nav"><!-------Inicio da navbar------->
 
@@ -19,6 +21,28 @@
             </ul>
         </nav><!-------Fim da navbar------->
     </header>
+    <div class="indicadores">
+        <div class="indicador">
+            <h3>Total de Tentativas</h3>
+            <span id="textoDototal"></span>
+        </div>
+        <div class="indicador">
+            <h3>Pontuação maxima</h3>
+            <span id="pontMaxima"></span>
+        </div>
+        <div class="indicador">
+            <h3>Pontuação minima</h3>
+            <span id="pontMinima"></span>
+        </div>
+        <div class="indicador">
+            <h3>Pontuação média</h3>
+            <span id="pontMedia"></span>
+        </div>
+        <div class="indicador">
+            <h3>Ultima pontuação</h3>
+            <span id="ultimaPontuacao"></span>
+        </div>
+    </div>
     <section id="pilot-carrer">
         <div class="container">
             <div class="pilot">
@@ -39,69 +63,142 @@
         </div>
     </section>
     <!-- -------------------------------------------------------------------------------------------------- -->
+   
 
     <footer id="footer"> <!-- Inicio do footer -->
         <span class="footer-text">&copy; Desenvolvido com &hearts; por Lucas Rodrigues</span>
         <a href="https://github.com/LucasRodriguesCartaxo" target="_blank" class="github-logo"><img
                 src="./img/logo githun.png"></a>
     </footer> <!-- Fim do footer -->
-
+    
     <!-- -------------------------------------------------------------------------------------------------- -->
 </body>
-
 </html>
 
 <script>
-    const chartPoints = document.getElementById('chartPoints');
+    function gerarGrafico() {
+
+        const chartPoints = document.getElementById('chartPoints');
+        var corretas = 0;
+        var erradas = 0;
+        
+
+        fetch(`/quiz/dados/${sessionStorage.getItem("ID_USUARIO")}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    corretas = json[0].qtd_corretas;
+                    ultimaPontuacao.innerHTML = corretas
+                    erradas = json[0].qtd_erradas;
+
+                    new Chart(chartPoints, {
+                        type: 'pie',
+                        data: {
+                            labels: ['Errado', 'Certo'],
+                            datasets: [{
+                                label: 'Pontos',
+                                data: [erradas, corretas],
+                                backgroundColor: ['#ff0000', '#008000'],
+                                barThickness: 30,
+                                borderWidth: 2
+                            },
+                            ]
+                        },
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true,
+                                    ticks: {
+                                        color: '#CCC'
+                                    },
+                                    grid: {
+                                        color: '#CCC'
+                                    }
+                                },
+                                x: {
+                                    ticks: {
+                                        color: '#CCC'
+                                    }
+                                }
+                            },
+                            plugins: {
+                                legend: {
+                                    labels: {
+                                        color: '#CCC'
+                                    }
+                                },
+                                title: {
+                                    display: true,
+                                    text: 'Pontos por Temporada na Fórmula 1',
+                                    color: '#fff',
+                                    font: {
+                                        size: 15
+                                    }
+                                }
+                            },
+                        },
+                    });
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar pegar dados do quiz!");
+
+                resposta.text().then(texto => {
+                    alert(`Houve um erro ao tentar pegar dados do quiz!`)
+                    console.error(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+    }
+
+    function totalTentativas() {
+        fetch(`/quiz/totalTentativas/${sessionStorage.getItem("ID_USUARIO")}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    textoDototal.innerHTML = json[0].total_de_tentativas
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar pegar dados do quiz!");
+
+                resposta.text().then(texto => {
+                    alert(`Houve um erro ao tentar pegar dados do quiz!`)
+                    console.error(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+    }
 
 
-    new Chart(chartPoints, {
-        type: 'pie',
-        data: {
-            labels: ['Errado', 'Certo'],
-            datasets: [{
-                label: 'Pontos',
-                data: [50, 50],
-                backgroundColor: ['#ff0000', '#008000'],
-                barThickness: 30,
-                borderWidth: 2
-            },
-            ]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    ticks: {
-                        color: '#CCC'
-                    },
-                    grid: {
-                        color: '#CCC'
-                    }
-                },
-                x: {
-                    ticks: {
-                        color: '#CCC'
-                    }
-                }
-            },
-            plugins: {
-                legend: {
-                    labels: {
-                        color: '#CCC'
-                    }
-                },
-                title: {
-                    display: true,
-                    text: 'Pontos por Temporada na Fórmula 1',
-                    color: '#fff',
-                    font: {
-                        size: 15
-                    }
-                }
-            },
-        },
-    });
-
-
+    gerarGrafico()
+    totalTentativas()
 </script>
