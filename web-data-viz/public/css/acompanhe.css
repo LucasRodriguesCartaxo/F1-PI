@@ -1,173 +1,178 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
-*{
+:root {
+    --main-color: #d3ad7f; /* criar as cores das equipes aqui */
+    --black: #13131a;
+    --bg: #1a2b3c;
+    --border: 0.1rem solid rgba(255, 255, 255, 0.3);
+    --redF1: #e10600;
+}
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html{
+html {
     scroll-behavior: smooth;
 }
 
-body{
+body {
     background-color: #2020209c;
     font-family: 'Open Sans', sans-serif;
 }
 
-::selection{
+::selection {
     background-color: #d9d8fd;
     color: #000;
 }
 
 /* Inicio do estilo do header */
-#header{
-    padding: 10px 20px;
+#header {
+    margin-bottom: 5px; /* Reduzido o espaçamento inferior */
 }
 
-.nav{
+.nav {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
 }
 
 .usuario {
-    font-size: 18px; /* Tamanho da fonte */
-    font-weight: bold; /* Texto em negrito */
-    color: #ffffff; /* Cor do texto */
-    background-color: #1e3a8a; /* Fundo azul escuro */
-    padding: 10px 15px; /* Espaçamento interno */
-    border-radius: 5px; /* Bordas arredondadas */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
-    display: inline-block; /* Garantir que o texto ocupe apenas o tamanho necessário */
-    margin: 10px; /* Espaçamento em relação a outros elementos */
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #1e3a8a;
+    padding: 10px 15px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    margin: 10px;
 }
 
-
-.logo:hover{
+.logo:hover {
     transform: translateY(2px) translateX(5px);
     transition: 0.3s;
 }
 
-.nav-login{
+.nav-login {
     position: absolute;
     right: 0;
     top: 1%;
 }
 
-.nav-login, .menu-item{
+.nav-login, .menu-item {
     display: inline-block;
     list-style: none;
-    margin: 10px 20px;
+    margin: 5px 10px; /* Margens reduzidas */
 }
 
-
-.menu-item a{
+.menu-item a {
     color: #fff;
     text-decoration: none;
     font-size: 18px;
 }
 
-.menu-item a:hover{
+.menu-item a:hover {
     color: #2020209c;
     transition: 0.5s;
 }
 /* Fim do estilo do header */
 
 /* Inicio do estilo do piloto */
-.container{
-    padding: 10px 20px;
+.container {
+    padding: 10px 10px; /* Reduzido o padding geral */
 }
 
-.pilot{
+.pilot {
     display: flex;
-    padding: 0 20px;
+    padding: 0 10px; /* Reduzido padding lateral */
 }
 
-.pilot-col-1{
+.pilot-col-1 {
     position: fixed;
-    top: 15%;
+    top: 12%; /* Ajustado para aproximar os gráficos do topo */
 }
 
-.pilot-col-2{
-    margin-top: 5%;
+.pilot-col-2 {
+    margin-top: 2%;
     width: 75%;
-    margin-left: 0%;
+    margin-left: 0;
 }
 
-.infos{
+.infos {
     display: flex;
     flex-direction: column;
     width: 445px;
 }
 
-.pilot-name{
+.pilot-name {
     font-size: 50px;
     color: #224074;
     text-transform: uppercase;
     width: 100%;
 }
 
-.span-info{
+.span-info {
     color: #f7f7f7;
     font-weight: lighter;
     font-size: 20px;
     letter-spacing: 1.5px;
 }
 
-.pilot-infos{
+.pilot-infos {
     display: flex;
     justify-content: space-between;
 }
 
-.infos-description{
+.infos-description {
     display: flex;
     justify-content: space-between;
     color: #CCC;
     font-size: 15px;
 }
 
-.carrer{
+.carrer {
     font-size: 35px;
     font-weight: 500;
     color: #224074;
     text-transform: uppercase;
-    margin-bottom: 25px;
+    margin-bottom: 15px; /* Reduzido espaçamento inferior */
 }
 
-.stats{
-    margin: 0% 0;
+.stats {
+    margin: 0;
 }
 
-.pilot-stats-row-1{
+.pilot-stats-row-1 {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 20px;
+    margin-bottom: 10px; /* Reduzido espaçamento entre linhas */
 }
 
-.pilot-stats-row-2{
+.pilot-stats-row-2 {
     display: flex;
     justify-content: space-between;
 }
 
-.charts{
+.charts {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     width: 50%;
-    gap: 50px;
-    margin-top: 50px;
-    margin-left: 0%;
+    gap: 20px; /* Reduzido espaçamento entre os gráficos */
+    margin-top: 10px; /* Aproxima os gráficos do conteúdo acima */
+    margin-left: 0;
 }
 
-.chartPoints{
+.chartPoints {
     width: 50%;
-    
 }
 /* Fim do estilo do piloto */
 
 /* inicio do estilo do footer */
-#footer{
+#footer {
     height: 80px;
     color: #FFF;
     background-color: #d3ad7f;
@@ -176,21 +181,21 @@ body{
     align-items: center;
 }
 
-.footer-text{
+.footer-text {
     font-size: 20px;
     font-weight: lighter;
 }
 
-.github-logo{
+.github-logo {
     margin-left: 20px;
 }
 
-.github-logo img{
+.github-logo img {
     width: 45px;
     height: 45px;
 }
 
-.github-logo img:hover{
+.github-logo img:hover {
     transition: 0.5s;
     width: 50px;
     height: 50px;
