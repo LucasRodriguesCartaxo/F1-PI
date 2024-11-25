@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/acompanhe.css">
+    <link rel="shortcut icon" href="../assets/images/cavallino.png" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Acompanhe a Fórmula 1</title>
+</head>
+
+<body>
+    <header id="header">
+        <nav class="nav">
+            <span id="hello" class="usuario"></span>
+            <ul class="nav-login">
+                <li class="menu-item"><a href="./index.html">Home</a></li>
+                <li class="menu-item"><a href="./login.html">Login</a></li>
+                <li class="menu-item"><a href="./cadastro.html">Cadastro</a></li>
+            </ul>
+        </nav><!-------Fim da navbar------->
+    </header>
+    <section id="pilot-carrer">
+        <div class="container">
+            <div class="pilot">
+                <div class="pilot-col-2">
+                    <div class="stats">
+                        <div class="charts">
+                            <canvas id="chartPoints"></canvas>
+                            <canvas id="chartStatus"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- -------------------------------------------------------------------------------------------------- -->
+
+    <footer id="footer"> <!-- Inicio do footer -->
+        <span class="footer-text">&copy; Desenvolvido com &hearts; por Lucas Rodrigues</span>
+        <a href="https://github.com/LucasRodriguesCartaxo" target="_blank" class="github-logo"><img
+                src="./img/logo githun.png"></a>
+    </footer> <!-- Fim do footer -->
+
+    <!-- -------------------------------------------------------------------------------------------------- -->
+</body>
+
+</html>
+
+<script>
+    hello.innerHTML = `Olá ${sessionStorage.getItem("NOME_USUARIO")} acompanhe o campeonato em tempo real`
+    // Dados fictícios dos pilotos
+    var nomesPilotos = ['Lewis Hamilton', 'Max Verstappen', 'Charles Leclerc', 'Sergio Perez', 'Fernando Alonso'];
+    var pontosPilotos = [275, 350, 200, 220, 180];
+
+    // Configuração do gráfico
+    var ctx = document.getElementById('chartPoints').getContext('2d');
+    var chartPoints = new Chart(ctx, {
+        type: 'bar', // Tipo de gráfico (barras horizontais são 'bar' com opção específica abaixo)
+        data: {
+            labels: nomesPilotos, // Nomes dos pilotos
+            datasets: [{
+                label: 'Pontos',
+                data: pontosPilotos, // Pontos dos pilotos
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.6)',
+                    'rgba(54, 162, 235, 0.6)',
+                    'rgba(255, 206, 86, 0.6)',
+                    'rgba(75, 192, 192, 0.6)',
+                    'rgba(153, 102, 255, 0.6)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            indexAxis: 'y', // Esta opção transforma o gráfico de barras em horizontal
+            scales: {
+                x: {
+                    beginAtZero: true // Inicia o eixo X no zero
+                }
+            },
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top' // Legenda no topo
+                },
+                title: {
+                    display: true,
+                    text: 'Pontuação dos Pilotos na Temporada'
+                }
+            }
+        }
+    });
+
+
+    // Dados fictícios das equipes
+    var nomesEquipes = ['Red Bull Racing', 'Mercedes-AMG', 'Ferrari', 'McLaren', 'Aston Martin'];
+    var pontosEquipes = [700, 540, 480, 350, 300];
+
+    // Configuração do gráfico
+    var ctxEquipes = document.getElementById('chartStatus').getContext('2d');
+    var chartStatus = new Chart(ctxEquipes, {
+        type: 'bar', // Gráfico de barras horizontais
+        data: {
+            labels: nomesEquipes, // Nomes das equipes
+            datasets: [{
+                label: 'Pontos das Equipes',
+                data: pontosEquipes, // Pontuação das equipes
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.6)',
+                    'rgba(54, 162, 235, 0.6)',
+                    'rgba(255, 206, 86, 0.6)',
+                    'rgba(75, 192, 192, 0.6)',
+                    'rgba(153, 102, 255, 0.6)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            indexAxis: 'y', // Gráfico de barras horizontais
+            scales: {
+                x: {
+                    beginAtZero: true // Inicia o eixo X no zero
+                }
+            },
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top' // Legenda no topo
+                },
+                title: {
+                    display: true,
+                    text: 'Pontuação das Equipes na Temporada'
+                }
+            }
+        }
+    });
+
+</script>
