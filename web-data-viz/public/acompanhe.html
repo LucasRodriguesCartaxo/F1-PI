@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/acompanhe.css">
-    <link rel="shortcut icon" href="../assets/images/cavallino.png" type="image/x-icon">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Acompanhe a Fórmula 1</title>
 </head>
@@ -51,8 +50,8 @@
 <script>
     hello.innerHTML = `Olá ${sessionStorage.getItem("NOME_USUARIO")} acompanhe o campeonato em tempo real`
     // Dados fictícios dos pilotos
-    var nomesPilotos = ['Lewis Hamilton', 'Max Verstappen', 'Charles Leclerc', 'Sergio Perez', 'Fernando Alonso'];
-    var pontosPilotos = [275, 350, 200, 220, 180];
+    var nomesPilotos = ['VER', 'NOR', 'LEC', 'PIA', 'SAI', 'RUS', 'HAM', 'PER', 'ALO', 'HUL', 'TSU', 'GAS', 'STR', 'OCO', 'MAG', 'ALB', 'RIC', 'BEA', 'COL', 'LAW', 'ZHO', 'SAR', 'BOT'];
+    var pontosPilotos = [403, 340, 319, 268, 259, 217, 208, 152, 62, 35, 30, 26, 24, 23, 14, 12, 7, 5, 4, 0, 0, 0];
 
     // Configuração do gráfico
     var ctx = document.getElementById('chartPoints').getContext('2d');

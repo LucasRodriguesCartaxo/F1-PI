@@ -68,6 +68,55 @@ body {
     margin: 5px 10px; /* Margens reduzidas */
 }
 
+.charts canvas {
+    max-width: 100%;
+    height: auto;
+}
+
+
+
+
+
+
+/* Estilo geral para centralizar os gráficos */
+.charts {
+    display: flex; /* Alinha os gráficos em linha */
+    flex-wrap: wrap; /* Permite quebrar linha em telas menores */
+    justify-content: center; /* Centraliza os gráficos horizontalmente */
+    align-items: flex-start; /* Alinha os gráficos ao topo */
+    gap: 30px; /* Espaço entre os gráficos */
+    margin: 20px auto; /* Centraliza o container e adiciona margem */
+    padding: 20px; /* Espaçamento interno */
+    background-color: #f9f9f9; /* Cor de fundo */
+    border-radius: 10px; /* Cantos arredondados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    max-width: 1200px; /* Limita a largura do container */
+}
+
+/* Configuração individual para os gráficos */
+canvas {
+    width: 100%; /* Gráfico ocupa toda a largura disponível */
+    max-width: 500px; /* Limite máximo de largura */
+    height: auto; /* Altura ajustada automaticamente */
+    padding: 10px; /* Espaçamento interno */
+    background-color: #fff; /* Fundo branco */
+    border: 1px solid #ddd; /* Borda leve */
+    border-radius: 5px; /* Cantos arredondados */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra leve */
+}
+
+canvas {
+    width: 100%; /* Gráfico ocupa toda a largura disponível do container */
+    max-width: 500px; /* Define um limite máximo */
+    height: auto; /* Altura proporcional */
+    aspect-ratio: 4 / 3; /* Proporção largura:altura */
+    margin: 10px auto; /* Espaçamento entre gráficos */
+}
+
+
+
+
+
 .menu-item a {
     color: #fff;
     text-decoration: none;
@@ -97,7 +146,7 @@ body {
 
 .pilot-col-2 {
     margin-top: 2%;
-    width: 75%;
+    width: 100%;
     margin-left: 0;
 }
 
@@ -170,6 +219,14 @@ body {
     width: 50%;
 }
 /* Fim do estilo do piloto */
+
+
+.menu-item a:hover {
+    color: var(--main-color);
+    text-shadow: 0 0 10px var(--main-color);
+}
+
+
 
 /* inicio do estilo do footer */
 #footer {
