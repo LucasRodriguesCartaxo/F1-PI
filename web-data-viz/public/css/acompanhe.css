@@ -14,14 +14,22 @@
     box-sizing: border-box;
 }
 
-html {
+html,body {
     scroll-behavior: smooth;
-}
-
-body {
-    background-color: #2020209c;
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg);
     font-family: 'Open Sans', sans-serif;
 }
+
+/* body {
+    background-color: #2020209c;
+    font-family: 'Open Sans', sans-serif;
+} */
+
+
 
 ::selection {
     background-color: #d9d8fd;
@@ -51,10 +59,6 @@ body {
     margin: 10px;
 }
 
-.logo:hover {
-    transform: translateY(2px) translateX(5px);
-    transition: 0.3s;
-}
 
 .nav-login {
     position: absolute;
@@ -68,49 +72,44 @@ body {
     margin: 5px 10px; /* Margens reduzidas */
 }
 
-.charts canvas {
-    max-width: 100%;
-    height: auto;
-}
-
-
-/* Estilo geral para centralizar os gráficos */
+/* Ajuste exclusivo para os gráficos */
 .charts {
     display: flex; /* Alinha os gráficos em linha */
     flex-wrap: wrap; /* Permite quebrar linha em telas menores */
     justify-content: center; /* Centraliza os gráficos horizontalmente */
     align-items: flex-start; /* Alinha os gráficos ao topo */
-    gap: 30px; /* Espaço entre os gráficos */
+    gap: 20px; /* Espaço entre os gráficos */
     margin: 20px auto; /* Centraliza o container e adiciona margem */
-    padding: 20px; /* Espaçamento interno */
-    background-color: #f9f9f9; /* Cor de fundo */
-    border-radius: 10px; /* Cantos arredondados */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra leve */
-    max-width: 1200px; /* Limita a largura do container */
+    padding: 15px; /* Espaçamento interno */
+    background-color: #f1f1f1; /* Fundo claro para contraste */
+    border-radius: 8px; /* Cantos arredondados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra mais sutil */
+    max-width: 1000px; /* Limite máximo de largura */
 }
 
-/* Configuração individual para os gráficos */
+/* Estilo individual para os gráficos */
 canvas {
-    width: 100%; /* Gráfico ocupa toda a largura disponível */
-    max-width: 500px; /* Limite máximo de largura */
+    width: 100%; /* O gráfico ocupa toda a largura disponível */
+    max-width: 450px; /* Limite máximo de largura */
     height: auto; /* Altura ajustada automaticamente */
-    padding: 10px; /* Espaçamento interno */
-    background-color: #fff; /* Fundo branco */
-    border: 1px solid #ddd; /* Borda leve */
-    border-radius: 5px; /* Cantos arredondados */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    background-color: #ffffff; /* Fundo branco */
+    border: 2px solid #e0e0e0; /* Borda sutil */
+    border-radius: 10px; /* Cantos arredondados */
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.15); /* Sombra leve */
 }
 
-canvas {
-    width: 100%; /* Gráfico ocupa toda a largura disponível do container */
-    max-width: 500px; /* Define um limite máximo */
-    height: auto; /* Altura proporcional */
-    aspect-ratio: 4 / 3; /* Proporção largura:altura */
-    margin: 10px auto; /* Espaçamento entre gráficos */
+/* Gráficos mais compactos em dispositivos menores */
+@media screen and (max-width: 768px) {
+    .charts {
+        flex-direction: column; /* Gráficos em coluna em telas pequenas */
+        align-items: center; /* Centraliza os gráficos verticalmente */
+        gap: 15px; /* Reduz espaço entre gráficos */
+    }
+
+    canvas {
+        max-width: 300px; /* Reduz tamanho máximo do gráfico */
+    }
 }
-
-
-
 
 
 .menu-item a {
@@ -123,108 +122,8 @@ canvas {
     color: #2020209c;
     transition: 0.5s;
 }
-/* Fim do estilo do header */
 
-/* Inicio do estilo do piloto */
-.container {
-    padding: 10px 10px; /* Reduzido o padding geral */
-}
-
-.pilot {
-    display: flex;
-    padding: 0 10px; /* Reduzido padding lateral */
-}
-
-.pilot-col-1 {
-    position: fixed;
-    top: 12%; /* Ajustado para aproximar os gráficos do topo */
-}
-
-.pilot-col-2 {
-    margin-top: 2%;
-    width: 100%;
-    margin-left: 0;
-}
-
-.infos {
-    display: flex;
-    flex-direction: column;
-    width: 445px;
-}
-
-.pilot-name {
-    font-size: 50px;
-    color: #224074;
-    text-transform: uppercase;
-    width: 100%;
-}
-
-.span-info {
-    color: #f7f7f7;
-    font-weight: lighter;
-    font-size: 20px;
-    letter-spacing: 1.5px;
-}
-
-.pilot-infos {
-    display: flex;
-    justify-content: space-between;
-}
-
-.infos-description {
-    display: flex;
-    justify-content: space-between;
-    color: #CCC;
-    font-size: 15px;
-}
-
-.carrer {
-    font-size: 35px;
-    font-weight: 500;
-    color: #224074;
-    text-transform: uppercase;
-    margin-bottom: 15px; /* Reduzido espaçamento inferior */
-}
-
-.stats {
-    margin: 0;
-}
-
-.pilot-stats-row-1 {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px; /* Reduzido espaçamento entre linhas */
-}
-
-.pilot-stats-row-2 {
-    display: flex;
-    justify-content: space-between;
-}
-
-.charts {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    width: 50%;
-    gap: 20px; /* Reduzido espaçamento entre os gráficos */
-    margin-top: 10px; /* Aproxima os gráficos do conteúdo acima */
-    margin-left: 0;
-}
-
-.chartPoints {
-    width: 50%;
-}
-/* Fim do estilo do piloto */
-
-
-.menu-item a:hover {
-    color: var(--main-color);
-    text-shadow: 0 0 10px var(--main-color);
-}
-
-
-
-/* inicio do estilo do footer */
+/* Estilo do footer */
 #footer {
     height: 80px;
     color: #FFF;
@@ -232,6 +131,7 @@ canvas {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-shrink: 0  ;
 }
 
 .footer-text {

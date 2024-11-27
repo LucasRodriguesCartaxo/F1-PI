@@ -18,31 +18,19 @@
             </ul>
         </nav><!-------Fim da navbar------->
     </header>
-    <section id="pilot-carrer">
-        <div class="container">
-            <div class="pilot">
-                <div class="pilot-col-2">
-                    <div class="stats">
-                        <div class="charts">
-                            <canvas id="chartPoints"></canvas>
-                            <canvas id="chartStatus"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+
+    <div class="charts">
+        <canvas id="chartPoints"></canvas>
+        <canvas id="chartStatus"></canvas>
+    </div>
     <!-- -------------------------------------------------------------------------------------------------- -->
 
     <footer id="footer"> <!-- Inicio do footer -->
         <span class="footer-text">&copy; Desenvolvido com &hearts; por Lucas Rodrigues</span>
         <a href="https://github.com/LucasRodriguesCartaxo" target="_blank" class="github-logo"><img
                 src="./img/logo githun.png"></a>
-    </footer> <!-- Fim do footer -->
-
-    <!-- -------------------------------------------------------------------------------------------------- -->
+    </footer> 
 </body>
-
 </html>
 
 <script>
@@ -65,8 +53,8 @@
             console.log('Labels:', labels);
             console.log('Points:', points);
 
-            var nomesPilotos = [labels[0], labels[1], labels[2], labels[3], labels[4], labels[5], labels[6], labels[7], labels[8], labels[9], labels[10], labels[11], labels[12], labels[13], labels[14], labels[15], labels[16], labels[17], labels[18], labels[19], points[20], points[21], points[22], points[23]];
-            var pontosPilotos = [points[0], points[1], points[2], points[3], points[4], points[5], points[6], points[7], points[8], points[9], points[10], points[11], points[12], points[13], points[14], points[15], points[16], points[17], points[18], points[19], points[20], points[21], points[22], points[23]];
+            var nomesPilotos = labels;
+            var pontosPilotos = points;
 
             // Configuração do gráfico 
             var ctx = document.getElementById('chartPoints').getContext('2d');
@@ -109,7 +97,18 @@
                     indexAxis: 'y', // Esta opção transforma o gráfico de barras em horizontal
                     scales: {
                         x: {
-                            beginAtZero: true // Inicia o eixo X no zero
+                            beginAtZero: true
+                        },
+                        y: {
+                            ticks: {
+                                autoSkip: false, // Força a exibição de todas as labels
+                                autoSkipPadding: 20,
+                                maxRotation: 20, // Rotaciona as labels em 45 graus
+                                minRotation: 20,
+                                font: {
+                                    size: 10
+                                }
+                            }
                         }
                     },
                     responsive: true,
