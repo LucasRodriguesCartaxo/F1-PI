@@ -15,8 +15,6 @@
             <span id="hello" class="usuario"></span>
             <ul class="nav-login">
                 <li class="menu-item"><a href="./index.html">Home</a></li>
-                <li class="menu-item"><a href="./login.html">Login</a></li>
-                <li class="menu-item"><a href="./cadastro.html">Cadastro</a></li>
             </ul>
         </nav><!-------Fim da navbar------->
     </header>
@@ -49,105 +47,166 @@
 
 <script>
     hello.innerHTML = `Olá ${sessionStorage.getItem("NOME_USUARIO")} acompanhe o campeonato em tempo real`
-    // Dados fictícios dos pilotos
-    var nomesPilotos = ['VER', 'NOR', 'LEC', 'PIA', 'SAI', 'RUS', 'HAM', 'PER', 'ALO', 'HUL', 'TSU', 'GAS', 'STR', 'OCO', 'MAG', 'ALB', 'RIC', 'BEA', 'COL', 'LAW', 'ZHO', 'SAR', 'BOT'];
-    var pontosPilotos = [403, 340, 319, 268, 259, 217, 208, 152, 62, 35, 30, 26, 24, 23, 14, 12, 7, 5, 4, 0, 0, 0];
-
-    // Configuração do gráfico
-    var ctx = document.getElementById('chartPoints').getContext('2d');
-    var chartPoints = new Chart(ctx, {
-        type: 'bar', // Tipo de gráfico (barras horizontais são 'bar' com opção específica abaixo)
-        data: {
-            labels: nomesPilotos, // Nomes dos pilotos
-            datasets: [{
-                label: 'Pontos',
-                data: pontosPilotos, // Pontos dos pilotos
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.6)',
-                    'rgba(54, 162, 235, 0.6)',
-                    'rgba(255, 206, 86, 0.6)',
-                    'rgba(75, 192, 192, 0.6)',
-                    'rgba(153, 102, 255, 0.6)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            indexAxis: 'y', // Esta opção transforma o gráfico de barras em horizontal
-            scales: {
-                x: {
-                    beginAtZero: true // Inicia o eixo X no zero
-                }
-            },
-            responsive: true,
-            plugins: {
-                legend: {
-                    position: 'top' // Legenda no topo
-                },
-                title: {
-                    display: true,
-                    text: 'Pontuação dos Pilotos na Temporada'
-                }
+    fetch('http://ergast.com/api/f1/2024/driverStandings.json')
+        .then((response) => {
+            if (response.ok) {
+                return response.json();
             }
-        }
-    });
+        })
+        .then((data) => {
+            // Acessar a lista de standings
+            const driverStandings = data.MRData.StandingsTable.StandingsLists[0].DriverStandings;
+
+            // Extrair os nomes dos pilotos e seus respectivos pontos
+            const labels = driverStandings.map(driver => driver.Driver.familyName); // Nomes dos pilotos
+            const points = driverStandings.map(driver => parseInt(driver.points)); // Pontos dos pilotos (convertidos para número)
 
 
-    // Dados fictícios das equipes
-    var nomesEquipes = ['Red Bull Racing', 'Mercedes-AMG', 'Ferrari', 'McLaren', 'Aston Martin'];
-    var pontosEquipes = [700, 540, 480, 350, 300];
+            console.log('Labels:', labels);
+            console.log('Points:', points);
 
-    // Configuração do gráfico
-    var ctxEquipes = document.getElementById('chartStatus').getContext('2d');
-    var chartStatus = new Chart(ctxEquipes, {
-        type: 'bar', // Gráfico de barras horizontais
-        data: {
-            labels: nomesEquipes, // Nomes das equipes
-            datasets: [{
-                label: 'Pontos das Equipes',
-                data: pontosEquipes, // Pontuação das equipes
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.6)',
-                    'rgba(54, 162, 235, 0.6)',
-                    'rgba(255, 206, 86, 0.6)',
-                    'rgba(75, 192, 192, 0.6)',
-                    'rgba(153, 102, 255, 0.6)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            indexAxis: 'y', // Gráfico de barras horizontais
-            scales: {
-                x: {
-                    beginAtZero: true // Inicia o eixo X no zero
-                }
-            },
-            responsive: true,
-            plugins: {
-                legend: {
-                    position: 'top' // Legenda no topo
+            var nomesPilotos = [labels[0], labels[1], labels[2], labels[3], labels[4], labels[5], labels[6], labels[7], labels[8], labels[9], labels[10], labels[11], labels[12], labels[13], labels[14], labels[15], labels[16], labels[17], labels[18], labels[19], points[20], points[21], points[22], points[23]];
+            var pontosPilotos = [points[0], points[1], points[2], points[3], points[4], points[5], points[6], points[7], points[8], points[9], points[10], points[11], points[12], points[13], points[14], points[15], points[16], points[17], points[18], points[19], points[20], points[21], points[22], points[23]];
+
+            // Configuração do gráfico 
+            var ctx = document.getElementById('chartPoints').getContext('2d');
+            var chartPoints = new Chart(ctx, {
+                type: 'bar', // Tipo de gráfico (barras horizontais são 'bar' com opção específica abaixo) 
+                data: {
+                    labels: nomesPilotos, // Nomes dos pilotos
+                    datasets: [{
+                        label: 'Pontos',
+                        data: pontosPilotos, // Pontos dos pilotos
+                        backgroundColor: [
+                            'rgb(24, 24, 96)',
+                            'rgb(239, 135, 4)',
+                            'rgb(234, 1, 7)',
+                            'rgb(239, 135, 4)',
+                            'rgb(234, 1, 7)',
+                            'rgb(94, 210, 189)',
+                            'rgb(94, 210, 189)',
+                            'rgb(24, 24, 96)',
+                            'rgb(36, 89, 79)',
+                            'rgb(227, 7, 19)',
+                            'rgb(14, 41, 71)',
+                            'rgb(12, 30, 44)',
+                            'rgb(36, 89, 79)',
+                            'rgb(12, 30, 44)',
+                            'rgb(227, 7, 19)',
+                            'rgb(73, 159, 213)',
+                            'rgb(14, 41, 71)',
+                            'rgb(227, 7, 19)',
+                            'rgb(73, 159, 213)',
+                            'rgb(14, 41, 71)',
+                        ],
+                        borderColor: [
+                            'rgb(30, 58, 138)',
+                        ],
+                        borderWidth: 1
+                    }]
                 },
-                title: {
-                    display: true,
-                    text: 'Pontuação das Equipes na Temporada'
+                options: {
+                    indexAxis: 'y', // Esta opção transforma o gráfico de barras em horizontal
+                    scales: {
+                        x: {
+                            beginAtZero: true // Inicia o eixo X no zero
+                        }
+                    },
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top' // Legenda no topo
+                        },
+                        title: {
+                            display: true,
+                            text: 'Pontuação dos Pilotos na Temporada'
+                        }
+                    }
                 }
-            }
-        }
-    });
+            });
+            // Configurar e renderizar o gráfico Chart.js
 
+
+
+        })
+        .catch((error) => {
+            console.error('Erro ao buscar dados da API:', error);
+        });
+
+
+
+
+
+
+
+
+
+
+    fetch('http://ergast.com/api/f1/2024/constructorStandings.json')
+        .then((response) => {
+            if (response.ok) {
+                return response.json();
+            }
+        })
+        .then((data) => {
+            // Acessar a lista de standings das equipes
+            const constructorStandings = data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings;
+
+            // Extrair os nomes das equipes e seus respectivos pontos
+            const nomes = constructorStandings.map(team => team.Constructor.name); // Nomes das equipes
+            const pontos = constructorStandings.map(team => parseInt(team.points)); // Pontos das equipes (convertidos para número)
+
+            console.log('Labels (Equipes):', nomes);
+            console.log('Points (Pontos):', pontos);
+
+            // Configurar e renderizar o gráfico Chart.js
+            var ctxEquipes = document.getElementById('chartStatus').getContext('2d');
+            var chartStatus = new Chart(ctxEquipes, {
+                type: 'bar', // Gráfico de barras horizontais
+                data: {
+                    labels: nomes, // Nomes das equipes
+                    datasets: [{
+                        label: 'Pontos das Equipes',
+                        data: pontos, // Pontuação das equipes
+                        backgroundColor: [
+                            'rgb(239, 135, 4)',
+                            'rgb(234, 1, 7)',
+                            'rgb(24, 24, 96)',
+                            'rgb(94, 210, 189)',
+                            'rgb(36, 89, 79)',
+                            'rgb(227, 7, 19)',
+                            'rgb(12, 30, 44)',
+                            'rgb(14, 41, 71)',
+                            'rgb(73, 159, 213)'
+                        ],
+                        borderColor: [
+                            'rgb(30, 58, 138)',
+
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    indexAxis: 'y', // Gráfico de barras horizontais
+                    scales: {
+                        x: {
+                            beginAtZero: true // Inicia o eixo X no zero
+                        }
+                    },
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top' // Legenda no topo
+                        },
+                        title: {
+                            display: true,
+                            text: 'Pontuação das Equipes na Temporada'
+                        }
+                    }
+                }
+            });
+        })
+        .catch((error) => {
+            console.error('Erro ao buscar dados da API:', error);
+        });
 </script>
