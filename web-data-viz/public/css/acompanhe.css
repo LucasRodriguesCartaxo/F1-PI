@@ -81,21 +81,26 @@ html,body {
     gap: 20px; /* Espaço entre os gráficos */
     margin: 20px auto; /* Centraliza o container e adiciona margem */
     padding: 15px; /* Espaçamento interno */
-    background-color: #f1f1f1; /* Fundo claro para contraste */
+    /* background-color: #f1f1f1;  */
     border-radius: 8px; /* Cantos arredondados */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra mais sutil */
-    max-width: 1000px; /* Limite máximo de largura */
+    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  */
+  width: 90%;
+
 }
+
+
+
 
 /* Estilo individual para os gráficos */
 canvas {
     width: 100%; /* O gráfico ocupa toda a largura disponível */
-    max-width: 450px; /* Limite máximo de largura */
+    max-width: 49%; /* Limite máximo de largura */
     height: auto; /* Altura ajustada automaticamente */
     background-color: #ffffff; /* Fundo branco */
     border: 2px solid #e0e0e0; /* Borda sutil */
     border-radius: 10px; /* Cantos arredondados */
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.15); /* Sombra leve */
+    max-height: 60vh;
 }
 
 /* Gráficos mais compactos em dispositivos menores */
@@ -119,10 +124,10 @@ canvas {
 }
 
 .menu-item a:hover {
-    color: #2020209c;
+    color: var(--main-color);
     transition: 0.5s;
 }
-
+    
 /* Estilo do footer */
 #footer {
     height: 80px;
@@ -131,7 +136,11 @@ canvas {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
     flex-shrink: 0  ;
+ 
 }
 
 .footer-text {
