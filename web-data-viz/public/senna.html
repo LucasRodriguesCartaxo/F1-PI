@@ -78,13 +78,14 @@
     const chartPoints = document.getElementById('chartPoints');
     const chartStatus = document.getElementById('chartStatus');
 
+    
     new Chart(chartPoints, {
         type: 'bar',
         data: {
-            labels: ['1994', '1993', '1992', '1991', '1990', '1989', '1988', '1987', '1986', '1985', '1984'],
+            labels: ['1984', '1985', '1986', '1987', '1988', '1989', '1990', '1991', '1992', '1993', '1994'],
             datasets: [{
                 label: 'Pontos',
-                data: ['0', '73', '50', '96', '78', '60', '90', '57', '55', '38', '13'],
+                data: ['13', '38', '55', '57', '90', '60', '78', '96', '50', '73', '0'],
                 backgroundColor: '#fec900',
                 barThickness: 30,
                 borderWidth: 2
@@ -129,10 +130,10 @@
     new Chart(chartStatus, {
         type: 'bar',
         data: {
-            labels: ['1994', '1993', '1992', '1991', '1990', '1989', '1988', '1987', '1986', '1985', '1984'],
+            labels: ['1984', '1985', '1986', '1987', '1988', '1989', '1990', '1991', '1992', '1993', '1994'],
             datasets: [{
                 label: 'Vitórias',
-                data: [0, 5, 3, 7, 6, 6, 8, 2, 2, 2, 0,],
+                data: [0, 2, 2, 2, 8, 6, 6, 7, 3, 5, 0],
                 backgroundColor: '#22a538',
                 barThickness: 30,
                 borderWidth: 2
