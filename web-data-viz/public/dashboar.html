@@ -97,8 +97,8 @@
                 resposta.json().then(json => {
                     console.log(json);
                     console.log(JSON.stringify(json));
-                    corretas = json[0].qtd_corretas;
-                    ultimaPontuacao.innerHTML = corretas
+                    corretas = json[0].qtd_corretas; // pegando essa info do alias que eu coloquei no model 
+                    ultimaPontuacao.innerHTML = corretas // pegando essa info do alias que eu coloquei no model
                     erradas = json[0].qtd_erradas;
 
                     new Chart(chartPoints, {
@@ -180,7 +180,7 @@
                 resposta.json().then(json => {
                     console.log(json);
                     console.log(JSON.stringify(json));
-                    textoDototal.innerHTML = json[0].total_de_tentativas
+                    textoDototal.innerHTML = json[0].total_de_tentativas //pegando essa info do model
                 });
 
             } else {
@@ -214,8 +214,8 @@
                     console.log(json);
                     console.log(JSON.stringify(json));
                     pontMaxima.innerHTML = json[0].max_pontuacao; // esses dados eu estou pegando o AS que eu utilei no quiz model
-                    pontMinima.innerHTML = json[0].min_pontuacao;
-                    pontMedia.innerHTML = json[0].media_pontuacao;
+                    pontMinima.innerHTML = json[0].min_pontuacao; //pont.minina é o id do span
+                    pontMedia.innerHTML = json[0].media_pontuacao; // pegando essas info que o BD me retorna e jogando n as KPIs
 
                 });
 
