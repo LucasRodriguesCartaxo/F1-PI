@@ -49,7 +49,7 @@ body {
     font-size: 24px;
     font-weight: bold;
     text-align: center;
-    color: #72fc02;
+    color: #d3ad7f;
 }
 
 .answers-conteiner{
@@ -97,13 +97,13 @@ button:not(:disabled):hover{
 }
 
 .final-message {
-    color: #72fc02; /* Mude para a cor que preferir /
+    color: #d3ad7f; /* Mude para a cor que preferir /
     font-size: 20px; / Altere o tamanho se desejar /
     text-align: center; / Centraliza a mensagem */
 }
 
 .textdash {
-    color: blue; /* Cor do texto */
+    color: #d3ad7f; /* Cor do texto */
     text-decoration: underline; /* Sublinhar o link */
     font-weight: bold; /* Texto em negrito */
     cursor: pointer; /* Cursor muda para "mãozinha" */
@@ -148,7 +148,7 @@ button:not(:disabled):hover{
     font-size: 20px;
     font-family: 'Roboto', sans-serif;
     position: relative;
-    color: #049b48;
+    color: #d3ad7f;
     text-decoration: none;
     transition: color 0.3s ease; 
 }
