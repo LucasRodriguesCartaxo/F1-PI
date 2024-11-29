@@ -29,8 +29,9 @@
         <span class="footer-text">&copy; Desenvolvido com &hearts; por Lucas Rodrigues</span>
         <a href="https://github.com/LucasRodriguesCartaxo" target="_blank" class="github-logo"><img
                 src="./img/logo githun.png"></a>
-    </footer> 
+    </footer>
 </body>
+
 </html>
 
 <script>
@@ -42,12 +43,34 @@
             }
         })
         .then((data) => {
-            // Acessar a lista de standings
+
+            //             A linha de código const driverStandings = data.MRData.StandingsTable.StandingsLists[0].DriverStandings; está extraindo uma parte específica de um objeto chamado data. O caminho de acesso é o seguinte:
+
+            // MRData: é o objeto principal que contém os dados.
+            // StandingsTable: contém informações sobre a classificação.
+            // StandingsLists[0]: acessa a primeira lista dentro de StandingsLists.
+            // DriverStandings: é o array com as posições dos pilotos.
+
+
             const driverStandings = data.MRData.StandingsTable.StandingsLists[0].DriverStandings;
 
             // Extrair os nomes dos pilotos e seus respectivos pontos
-            const labels = driverStandings.map(driver => driver.Driver.familyName); // Nomes dos pilotos
-            const points = driverStandings.map(driver => parseInt(driver.points)); // Pontos dos pilotos (convertidos para número)
+            const labels = driverStandings.map(driver => driver.Driver.familyName);  // cria um novo vetor contendo os nomes dos pilotos.
+            const points = driverStandings.map(driver => parseInt(driver.points)); // cria um novo vetor contendo os pontos dos pilotos convertidos para números inteiros
+            
+            // estou utilizando esse 'tratamento' de dados para utilizar na geração do meu grafico no chartjs
+            
+            // Pegando os nomes de pilotos
+            // Imagine que você tem uma lista de objetos com informações de pilotos e quer pegar apenas os nomes. O .map() 
+            // vai criar uma nova lista com esses nomes:
+
+            // const drivers = [
+            //   { name: 'Lewis', points: 150 },
+            //   { name: 'Max', points: 180 },
+            // ];
+
+            // const names = drivers.map(driver => driver.name);  // ['Lewis', 'Max']
+
 
 
             console.log('Labels:', labels);
