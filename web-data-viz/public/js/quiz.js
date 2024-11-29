@@ -1,79 +1,90 @@
-const $startGameButton = document.querySelector(".start-quiz");
-const $questionsContainer = document.querySelector(".question-container");
-const $answersContainer = document.querySelector(".answers-conteiner");
-const $questionText = document.querySelector(".question");
-const $nextQuestionButton = document.querySelector(".next-question");
+// Seleção de elementos HTML para manipulação posterior
+const $startGameButton = document.querySelector(".start-quiz"); // Botão de início do jogo
+const $questionsContainer = document.querySelector(".question-container"); // Contêiner das perguntas
+const $answersContainer = document.querySelector(".answers-conteiner"); // Contêiner das respostas
+const $questionText = document.querySelector(".question"); // Texto da pergunta
+const $nextQuestionButton = document.querySelector(".next-question"); // Botão para próxima pergunta
 
-$startGameButton.addEventListener("click", startGame)
-$nextQuestionButton.addEventListener("click", displayNextQuestion)
+// Adiciona eventos de clique aos botões
+$startGameButton.addEventListener("click", startGame); // Quando clicado, inicia o jogo
+$nextQuestionButton.addEventListener("click", displayNextQuestion); // Mostra a próxima pergunta
 
+// Variáveis para rastrear o progresso no quiz
+let currentQuestionIndex = 0; // Índice da pergunta atual
+let totalCorrect = 0; // Total de respostas corretas do jogador
 
-let currentQuestionIndex = 0
-let totalCorrect = 0
-
-
+// Função que inicia o jogo
 function startGame() {
-    $startGameButton.classList.add("hide");
-    $questionsContainer.classList.remove("hide");
-    displayNextQuestion()
+    $startGameButton.classList.add("hide"); // Esconde o botão de iniciar adicionando a classe 'hide'
+    $questionsContainer.classList.remove("hide"); // Mostra o contêiner das perguntas removendo a classe 'hide'
+    displayNextQuestion(); // Mostra a primeira pergunta
 }
 
-
+// Função que exibe a próxima pergunta
 function displayNextQuestion() {
-    resetState()
+    resetState(); // Reseta o estado anterior das respostas
 
+    // Verifica se todas as perguntas foram respondidas
     if (question.length === currentQuestionIndex) {
-        return finishGame()
+        return finishGame(); // Finaliza o jogo se todas as perguntas foram respondidas
     }
 
-    $questionText.textContent = question[currentQuestionIndex].question
-    question[currentQuestionIndex].answers.forEach(answer => {
-        const newAnswer = document.createElement("button")
-        newAnswer.classList.add("button", "answer")
-        newAnswer.textContent = answer.text
-        if (answer.correct) {
-            newAnswer.dataset.correct = answer.correct
-        }
-        $answersContainer.appendChild(newAnswer)
+    // Atualiza o texto da pergunta atual
+    $questionText.textContent = question[currentQuestionIndex].question;
 
-        newAnswer.addEventListener("click", selectAnswer)
-    })
+    // Adiciona as opções de resposta
+    question[currentQuestionIndex].answers.forEach(answer => {
+        const newAnswer = document.createElement("button"); // Cria um botão para a resposta
+        newAnswer.classList.add("button", "answer"); // Adiciona classes ao botão
+        newAnswer.textContent = answer.text; // Define o texto do botão como a resposta
+
+        if (answer.correct) {
+            newAnswer.dataset.correct = answer.correct; // Marca a resposta correta com um atributo
+        }
+        $answersContainer.appendChild(newAnswer); // Adiciona o botão ao contêiner de respostas
+
+        // Adiciona evento de clique para selecionar a resposta
+        newAnswer.addEventListener("click", selectAnswer);
+    });
 }
 
+// Função para resetar o estado anterior (limpar respostas e ocultar botão)
 function resetState() {
     while ($answersContainer.firstChild) {
-        $answersContainer.removeChild($answersContainer.firstChild)
+        $answersContainer.removeChild($answersContainer.firstChild); // Remove todas as respostas anteriores
     }
-
-    $nextQuestionButton.classList.add("hide")
+    $nextQuestionButton.classList.add("hide"); // Esconde o botão de próxima pergunta
 }
 
+// Função chamada quando uma resposta é selecionada
 function selectAnswer(event) {
-    const answerClicked = event.target;
+    const answerClicked = event.target; // Obtém o botão clicado
 
+    // Marca todas as respostas como corretas ou incorretas
     document.querySelectorAll(".answer").forEach(button => {
         if (button.dataset.correct) {
-            button.classList.add("correct");
+            button.classList.add("correct"); // Adiciona classe 'correct' para respostas corretas
         } else {
-            button.classList.add("incorrect");
+            button.classList.add("incorrect"); // Adiciona classe 'incorrect' para respostas erradas
         }
-        button.disabled = true;
+        button.disabled = true; // Desabilita todos os botões após a escolha
     });
 
-    // Incrementa `totalCorrect` apenas se a resposta clicada estiver correta
+    // Incrementa o total de acertos se a resposta clicada for correta
     if (answerClicked.dataset.correct === "true") {
         totalCorrect++;
     }
 
-    $nextQuestionButton.classList.remove("hide");
-    currentQuestionIndex++;
+    $nextQuestionButton.classList.remove("hide"); // Mostra o botão de próxima pergunta
+    currentQuestionIndex++; // Passa para a próxima pergunta
 }
 
+// Função que finaliza o jogo
 function finishGame() {
-    const totalQuestions = question.length;
-    let qtd_corretas = totalCorrect
+    const totalQuestions = question.length; // Total de perguntas no quiz
+    let qtd_corretas = totalCorrect; // Quantidade de respostas corretas
 
-
+    // Envia os dados do resultado para o servidor
     fetch("/quiz/inserir", {
         method: "POST",
         headers: {
