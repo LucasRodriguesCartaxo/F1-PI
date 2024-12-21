@@ -12,3 +12,4 @@ Esses por sua vez, são responsáveis por executar alguma query no banco e retor
 Caminha da resposta:
 Basicamente o caminho inverso, ou seja, o model pega a resposta e vai te enviar para o front.
 Você pode acessar a resposta no .then(function(resposta){})
+\\ teste
